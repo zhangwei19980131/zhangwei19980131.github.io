@@ -1,6 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/2020/07/11/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>我的第一篇博客文章</title>
+    <url>/2020/07/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
+    <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
+<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>–</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>数据挖掘笔记</title>
+    <url>/2020/10/04/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>day 1:2020 10月4日<br>    修改了一些博客yilia主题的内容 人物头像 链接 名称… </p>
+<p>上传有点慢 一些些–</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>数据结构之线性表</title>
+    <url>/2020/10/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E7%BA%BF%E6%80%A7%E8%A1%A8/</url>
+    <content><![CDATA[<p>3个项目：<br>1、    电话簿<br>2、    迷宫<br>3、    自助交易系统</p>
+<p>线性表：一对一的关系</p>
+<p>7个内容</p>
+<p>1、    定义：n个同类型数据元素的有限序列<br>特点：ai的数据类型相同 位序i从1开始 前驱与后继</p>
+<p>2、    抽象数据类型<br>数据对象 数据关系 基本操作</p>
+<p>基本操作：1、结构初始化操作2、结构销毁操作3、引用型操作4、加工型操作</p>
+<p>具体问题具体分析</p>
+<p>为什么要研究线性表、树、图这三种数据结构？如何对这些结构进行研究？</p>
+<p>合并线性表：<br>合并两个图书馆的所有书籍<br>思想：假设有两个线性表A和B，从B线性表依次读入每一本书的信息，然后查询A是否存在这本书，如果是，则数量增加；否则插入到A线性表中，直到B线性表的所有数据都处理完<br>细化：逐一：从第一个到最后一个，计数型循环，前提是知道元素个数 List_Size<br>    如何取出第i个数据元素bi?<br>        List_Retrieve(Lb,I,&amp;elem)<br>    如何判断bi是否已在A中<br>        List_Locate(La,elem,&amp;j)<br>            返回success or false<br>    如何不在A中，怎么样将bi插入呢<br>        List_Insert(La,1,elem)</p>
+<p>算法：<br>Status List_Union(SqListPtr La,SqListptr Lb)<br>{<br>    ElemType elem;//存放从Lb中取出的元素<br>    Status status;<br>    int i,j,len=List_Size(Lb);//len存放Lb的元素个数<br>    for(i=1;i&lt;=len;i++)<br>    {<br>        List_Retrive(Lb,i,&amp;elem);//取出Lb中第i个数据元素<br>        status=List_Locate(La,elem,&amp;j);//判断是否在A中<br>        if(status!=success)<br>        {<br>            status=List_Insert(La,1,elem);//插入<br>            if(status!=success) break; //失败则退出<br>        }<br>        else List_Add(La,j,1)//La的第j个数据加1<br>    }<br>    return status;<br>}</p>
+<p>分析：最好情形分析：B为A前面的部分元素<br>最坏情形分析：B∩A为空<br>选数据元素少的作为Lb 这样n越小，性能越好</p>
+<p>时间复杂度O（n2）</p>
+<p>合并有序表<br>时间复杂度O（n）</p>
+<p>分析 ：依次扫描 插入</p>
+<p>Status List_Merge(SqListPtr La,SqListptr Lb,SqListptr Lc)<br>{<br>    ElemType elem1,elem2;<br>    status=List_Init(Lc);<br>    int i=1,j=1,k=1//i,j,k分别用于指示La，Lb，Lc中当前元素<br>    int n=List_Size(La),m=List_Size(Lb);<br>    while(i&lt;=n&amp;&amp;j&lt;=m)<br>    {<br>        List_Retrive(La,i,&amp;elem1);//取出La中第i个数据元素<br>        List_Retrive(Lb,i,&amp;elem2);//通过这个函数获取Lb中的第i个元素，存放到elem2当中<br>        if(elem1&lt;elem2)<br>        {<br>            status=List_Insert(Lc,k,elem1);//如果elem1小,就把它插入到Lc当中<br>            i=i+1;<br>        }<br>        else<br>        {<br>            status=List_Insert(Lc,k,elem2);<br>            j=j+1;<br>        }<br>        k=k+1;//无论插入那个，k都要➕1<br>    }<br>    while(i&lt;=n)//表La没处理完<br>    {<br>        List_Retrieve(La,i,&amp;elem1);<br>        status=List_Insert(Lc,k,elem1);<br>        i=i+1;<br>        k=k+1;<br>    }<br>    while(j&lt;=m)//表Lb没处理完<br>    {<br>        List_Retrieve(Lb,i,&amp;elem2);<br>        status=List_Insert(Lc,k,elem2);<br>        j=j+1;<br>        k=k+1;<br>    }<br>    return status;<br>}</p>
+<p>这里插入一个问题<br>单链表插入一个元素<br>Status ListInsert L(LinkList &amp;L,int i,ElemType e)<br>{<br>//在带头结点的单链线性表L中第i个位置之前插入元素e<br>p=L; j=0;<br>while(p&amp;&amp;j&lt;i-1)//寻找第I-1个节点<br>{<br>      p=p-&gt;next;<br>      ++j;<br>}<br>if（!p||j&gt;i-1）//i小于1或大于表长<br>return ERROR;<br>s=(LinkList)malloc(sizeof(LNode));//生成新节点<br>s-&gt;data=e;    //插入L中<br>s-&gt;next=p-&gt;next;<br>p-&gt;next=s;<br>return OK;<br>}</p>
+<p>线性表的顺序存储结构<br>    用一组地址连续的存储单元依次存放线性表中的数据元素</p>
+<p>前驱后继关系非常容易找</p>
+<p>可以随机存取数据：无论要找什么位置的数据，访问的速度都非常快。常数时间就可以访问<br>顺序存储结构的实现：<br>用结构来整合：<br>空间如何分配？<br>静态：数组   动态：指针<br>typedef struct SqList<br>{<br>    ElemType <em>elem;<br>    int length;<br>    int list_size;<br>}SqList,</em>ptr;<br>typedef Ptr SqlListPtr;</p>
+<p>ElemType 这个数据类型 具体问题具体分析  整数int 字符型char</p>
+<p>1、    基本操作<br>1、初始化 创建线性表<br>c语言中没有baistatus这个关键字。<br>但一般写程序du时，会定义这样的一个类型，zhi用来表示成功或dao失败状态。<br>如：0表示成功，-1表示失败<br>这样status就可以定义成int类型，如：<br>typedef int status ;<br>然后用它去定义变量或函数返回值类型，</p>
+<p>Status List_Init(SqListPtr L)<br>{<br>    Status s=success;<br>    L-&gt;list_size=LIST_INIT_SIZE;<br>    L-&gt;length=0;<br>    L-&gt;elem=(ElemType <em>)malloc(sizeof(ElemType)</em>L-&gt;list_size);<br>    if(L-&gt;elem==null)<br>        s=fatal;<br>    return s;<br>}<br>时间复杂度 O(1)</p>
+<p>2、查找<br>        按位置查找<br>Status List_Retrival(SqListPtr L,int pos,ElemType *elem)//在线性表L当中 找pos这个元素 如果找到放到elem指针当中 Status 的返回值就是查找是不是成功的状态信息<br>{<br>    Status s=range_error;//初始时给一个查找失败 越界错误<br>    if(L){//意为线性表存在的情况下<br>        if((pos-1)&gt;=0&amp;&amp;(pos-1)<L->length)//我们的pos 是1到n C语言第一个位置是0<br>        {<br>            *elem=L-&gt;elem[pos-1];//把elem pos-1的值赋给指针<br>            s=success;<br>        }<br>    }<br>    else<br>        s=fatal;<br>    return s;<br>}</L-></p>
+<p>时间复杂度也是常数的时间复杂度</p>
+<pre><code>按值查找</code></pre><p>Status List_Retrival(SqListPtr L,ElemType elem,int *pos)//找elem在线性表中的位置，放到pos当中<br>{<br>    Status s=range_error;<br>    if(L){<br>        for(int i=0;i<L->length;++i)<br>        {<br>            if(L-&gt;elem[i]==elem){<br>                *pos=i+1;<br>                s=success;<br>                break;<br>            }<br>        }<br>    }<br>    else<br>        s=fatal;<br>    return s;<br>}<br>时间复杂度O（n）<br>线性表的链式存储结构<br>单链表：用一组地址任意的存储单元存放线性表中的数据元素<br>数据域和指针域</L-></p>
+<p>头指针与空指针<br>空表时头结点的指针域为空</p>
+]]></content>
+  </entry>
+  <entry>
     <title>数据结构笔记（开头部分）</title>
     <url>/2020/10/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%88%E5%BC%80%E5%A4%B4%E9%83%A8%E5%88%86%EF%BC%89/</url>
     <content><![CDATA[<p>程序=算法+数据结构  算法=逻辑+控制</p>
@@ -59,76 +123,24 @@
 ]]></content>
   </entry>
   <entry>
-    <title>数据挖掘笔记</title>
-    <url>/2020/10/04/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<p>day 1:2020 10月4日<br>    修改了一些博客yilia主题的内容 人物头像 链接 名称… </p>
-<p>上传有点慢 一些些–</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>我的第一篇博客文章</title>
-    <url>/2020/07/11/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
-    <content><![CDATA[<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
-<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>–</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/07/11/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>数据结构之线性表</title>
-    <url>/2020/10/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E7%BA%BF%E6%80%A7%E8%A1%A8/</url>
-    <content><![CDATA[<p>3个项目：<br>1、    电话簿<br>2、    迷宫<br>3、    自助交易系统</p>
-<p>线性表：一对一的关系</p>
-<p>7个内容</p>
-<p>1、    定义：n个同类型数据元素的有限序列<br>特点：ai的数据类型相同 位序i从1开始 前驱与后继</p>
-<p>2、    抽象数据类型<br>数据对象 数据关系 基本操作</p>
-<p>基本操作：1、结构初始化操作2、结构销毁操作3、引用型操作4、加工型操作</p>
-<p>具体问题具体分析</p>
-<p>为什么要研究线性表、树、图这三种数据结构？如何对这些结构进行研究？</p>
-<p>合并线性表：<br>合并两个图书馆的所有书籍<br>思想：假设有两个线性表A和B，从B线性表依次读入每一本书的信息，然后查询A是否存在这本书，如果是，则数量增加；否则插入到A线性表中，直到B线性表的所有数据都处理完<br>细化：逐一：从第一个到最后一个，计数型循环，前提是知道元素个数 List_Size<br>    如何取出第i个数据元素bi?<br>        List_Retrieve(Lb,I,&amp;elem)<br>    如何判断bi是否已在A中<br>        List_Locate(La,elem,&amp;j)<br>            返回success or false<br>    如何不在A中，怎么样将bi插入呢<br>        List_Insert(La,1,elem)</p>
-<p>算法：<br>Status List_Union(SqListPtr La,SqListptr Lb)<br>{<br>    ElemType elem;//存放从Lb中取出的元素<br>    Status status;<br>    int i,j,len=List_Size(Lb);//len存放Lb的元素个数<br>    for(i=1;i&lt;=len;i++)<br>    {<br>        List_Retrive(Lb,i,&amp;elem);//取出Lb中第i个数据元素<br>        status=List_Locate(La,elem,&amp;j);//判断是否在A中<br>        if(status!=success)<br>        {<br>            status=List_Insert(La,1,elem);//插入<br>            if(status!=success) break; //失败则退出<br>        }<br>        else List_Add(La,j,1)//La的第j个数据加1<br>    }<br>    return status;<br>}</p>
-<p>分析：最好情形分析：B为A前面的部分元素<br>最坏情形分析：B∩A为空<br>选数据元素少的作为Lb 这样n越小，性能越好</p>
-<p>时间复杂度O（n2）</p>
-<p>合并有序表<br>时间复杂度O（n）</p>
-<p>分析 ：依次扫描 插入</p>
-<p>Status List_Merge(SqListPtr La,SqListptr Lb,SqListptr Lc)<br>{<br>    ElemType elem1,elem2;<br>    status=List_Init(Lc);<br>    int i=1,j=1,k=1//i,j,k分别用于指示La，Lb，Lc中当前元素<br>    int n=List_Size(La),m=List_Size(Lb);<br>    while(i&lt;=n&amp;&amp;j&lt;=m)<br>    {<br>        List_Retrive(La,i,&amp;elem1);//取出La中第i个数据元素<br>        List_Retrive(Lb,i,&amp;elem2);//通过这个函数获取Lb中的第i个元素，存放到elem2当中<br>        if(elem1&lt;elem2)<br>        {<br>            status=List_Insert(Lc,k,elem1);//如果elem1小,就把它插入到Lc当中<br>            i=i+1;<br>        }<br>        else<br>        {<br>            status=List_Insert(Lc,k,elem2);<br>            j=j+1;<br>        }<br>        k=k+1;//无论插入那个，k都要➕1<br>    }<br>    while(i&lt;=n)//表La没处理完<br>    {<br>        List_Retrieve(La,i,&amp;elem1);<br>        status=List_Insert(Lc,k,elem1);<br>        i=i+1;<br>        k=k+1;<br>    }<br>    while(j&lt;=m)//表Lb没处理完<br>    {<br>        List_Retrieve(Lb,i,&amp;elem2);<br>        status=List_Insert(Lc,k,elem2);<br>        j=j+1;<br>        k=k+1;<br>    }<br>    return status;<br>}</p>
-<p>这里插入一个问题<br>单链表插入一个元素<br>Status ListInsert L(LinkList &amp;L,int i,ElemType e)<br>{<br>//在带头结点的单链线性表L中第i个位置之前插入元素e<br>p=L; j=0;<br>while(p&amp;&amp;j&lt;i-1)//寻找第I-1个节点<br>{<br>      p=p-&gt;next;<br>      ++j;<br>}<br>if（!p||j&gt;i-1）//i小于1或大于表长<br>return ERROR;<br>s=(LinkList)malloc(sizeof(LNode));//生成新节点<br>s-&gt;data=e;    //插入L中<br>s-&gt;next=p-&gt;next;<br>p-&gt;next=s;<br>return OK;<br>}</p>
-<p>线性表的顺序存储结构<br>    用一组地址连续的存储单元依次存放线性表中的数据元素</p>
-<p>前驱后继关系非常容易找</p>
-<p>可以随机存取数据：无论要找什么位置的数据，访问的速度都非常快。常数时间就可以访问<br>顺序存储结构的实现：<br>用结构来整合：<br>空间如何分配？<br>静态：数组   动态：指针<br>typedef struct SqList<br>{<br>    ElemType <em>elem;<br>    int length;<br>    int list_size;<br>}SqList,</em>ptr;<br>typedef Ptr SqlListPtr;</p>
-<p>ElemType 这个数据类型 具体问题具体分析  整数int 字符型char</p>
-<p>1、    基本操作<br>1、初始化 创建线性表<br>c语言中没有baistatus这个关键字。<br>但一般写程序du时，会定义这样的一个类型，zhi用来表示成功或dao失败状态。<br>如：0表示成功，-1表示失败<br>这样status就可以定义成int类型，如：<br>typedef int status ;<br>然后用它去定义变量或函数返回值类型，</p>
-<p>Status List_Init(SqListPtr L)<br>{<br>    Status s=success;<br>    L-&gt;list_size=LIST_INIT_SIZE;<br>    L-&gt;length=0;<br>    L-&gt;elem=(ElemType <em>)malloc(sizeof(ElemType)</em>L-&gt;list_size);<br>    if(L-&gt;elem==null)<br>        s=fatal;<br>    return s;<br>}<br>时间复杂度 O(1)</p>
-<p>2、查找<br>        按位置查找<br>Status List_Retrival(SqListPtr L,int pos,ElemType *elem)//在线性表L当中 找pos这个元素 如果找到放到elem指针当中 Status 的返回值就是查找是不是成功的状态信息<br>{<br>    Status s=range_error;//初始时给一个查找失败 越界错误<br>    if(L){//意为线性表存在的情况下<br>        if((pos-1)&gt;=0&amp;&amp;(pos-1)<L->length)//我们的pos 是1到n C语言第一个位置是0<br>        {<br>            *elem=L-&gt;elem[pos-1];//把elem pos-1的值赋给指针<br>            s=success;<br>        }<br>    }<br>    else<br>        s=fatal;<br>    return s;<br>}</p>
-<p>时间复杂度也是常数的时间复杂度</p>
-<pre><code>按值查找</code></pre><p>Status List_Retrival(SqListPtr L,ElemType elem,int *pos)//找elem在线性表中的位置，放到pos当中<br>{<br>    Status s=range_error;<br>    if(L){<br>        for(int i=0;i<L->length;++i)<br>        {<br>            if(L-&gt;elem[i]==elem){<br>                *pos=i+1;<br>                s=success;<br>                break;<br>            }<br>        }<br>    }<br>    else<br>        s=fatal;<br>    return s;<br>}<br>时间复杂度O（n）<br>线性表的链式存储结构<br>单链表：用一组地址任意的存储单元存放线性表中的数据元素<br>数据域和指针域</p>
-<p>头指针与空指针<br>空表时头结点的指针域为空</p>
-]]></content>
-  </entry>
-  <entry>
     <title>人工智能导论笔记</title>
     <url>/2020/10/18/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p>第一章<br>人工智能：藏于冰山下的万亿级巨大市场<br>1、    AlphaGo  VS  李世石<br>2、人工智能（AI）：是研究、开发用于模拟、延伸和扩展人的智能的理论、方法、技术应用系统的一门科学。研究范围包括：语言识别、图像识别、专家系统和我们最熟悉的机器人等。<br>3、人工智能是对人的意识、思维的模拟。看起来好像拥有自己的思维。<br>4、人工智能可以被分为5个等级<br>1、无法与人类交互的人工智能<br>    交互意为交流互动，我们无法窥探它们的思维<br>2、可以与人类交互的人工智能<br>        智能家电，它们无法自动升级，更不会主动去学习新的技能<br>    3、可以通过外界设备进行升级的人工智能<br>        手机，计算机，可以被动升级<br>    4、可以通过云端共享信息的人工智能<br>        搜索引擎<br>    5、能够自主学习，创新的人工智能<br>        人类可以看成是人工智能的圆满境界。总结为：能够与人类交互信息，可以通过各种信息载体甚至在云端中搜集信息，并且可以创新、创造、形成新的知识的人工智能。<br>5、汽车与机器人<br>2014年，谷歌研发出无人驾驶汽车原型<br>6、互联网的搜索引擎也属于人工智能，它依托的就是一种名为“机器学习”的人工智能技术。<br>机器学习以及超高速的运算能力使人工智能完成者一件又一件人工不可能完成的任务<br>7、百度的先见之明<br>    用于百度外卖。</p>
 <p>第二章<br>人工智能1.0时代：图灵的计算王国<br>1、阿兰-图灵：计算机之父和人工智能之父<br>2、1956年的达特茅斯会议，提出了人工智能的概念，这个概念包含了用机器人承载人类思维的设想。<br>3、早期的机器人就是根据搜索树来制定行动规划的。<br>4、这个研究将所有的“前提条件”“行动”“结果”这三个机器人运作的要素组合在了一起，它就是<br>STRIPS</p>
 <p>第三章<br>人工智能2.0时代：知识 让计算机更聪明<br>1、人机对话：<br>Eliza<br>2、本体研究：如何正确描述知识<br>3、本体论<br>本体的研究是一件非常困难的事情<br>重量级本体论：研究重点应该是怎么描述知识，并根据这个方向进行试验。<br>轻量级本体论：应该将数据输入计算机后，让计算机找出这些数据之间的关联。<br>4、机器翻译：难在何处？<br>1、如果要让机器翻译完全达到人类的水平，就必须克服自然语言中有关歧义的问题，这是自然语言中普遍存在的问题，歧义就是多义性。<br>2、跨语种翻译<br>很简单的一件事或一句话，如果没有常识作为基础，那么翻译、理解起来必然非常困难，这也是机器翻译的困难之一。<br>5、1981年，日本宣布开始研制第五代计算机。<br>6、最大的问题：如果人工智能的所有知识都需要人类输入，那么需要输入的内容将是无穷无尽的<br>第四章<br>人工智能3.0时代：悄然兴起的机器学习<br>1、机器学习：一种能够通过经验自动改进计算机算法的研究<br>2、机器学习是一门研究机器获取新知识和新技能，并识别现有知识的学问<br>3、机器学习分为有监督学习和无监督学习<br>有监督学习：就是分类<br>邻近算法就是理论比较成熟的有监督学习的应用<br>如果一个样本在特定的空间内有K个最相似的样本，并且这些样本大多数属于某一类别，那么这个样本就属于这个类别，因为在判断之前要确认所选择的邻近样本都是正确的分类对象，这就是所谓的监督。<br>无监督学习：更有探索价值，<br>我们并没有放置任何可以参考的样本或者已经分类的参考目标，机器需要直接对已有数据建立模型。<br>4、聚类分析是无监督学习的典型案例。目的是在相似的基础上收集数据进行分类。很多领域都会使用到聚类分析<br>5、分类方法有很多种：<br>1、决策树<br>2、正则化法<br>3、朴素贝叶斯算法<br>4、人工神经网络：<br>6、人工神经网络更像是真正意义上的人工智能的计算方式，因为它是通过模仿人类的脑神经回路进行分类的<br>7、人工神经网络： 权重<br>8、机器学习的难点：特征工程<br>继自然语言处理之后，如何让计算机自己去选择合适的特征量成为了人工智能发展需要克服的又一道难题</p>
 <p>第五章<br>人工智能4.0时代：深度学习打破沉寂<br>1、2006年，提出了深度学习的概念。它是机器学习这门学科的一个分支，属于无监督学习<br>卷积神经网络。<br>2、深度学习建立在模拟人脑进行分析学习的神经网络基础上，深度学习的重点在于深度，它比机器学习更看重纵向传输，也就是在某一个节点进行深度计算。<br>3、人工神经网络无疑是机器学习十分高效的算法之一。<br>4、自动编码器的功能就是为计算机学习的过程提供一个学习正解的机会。<br>5、深度学习中，多层级架构是一个需要重点攻克的领域。<br>6、情绪识别<br>7、人工智能软实力基础：1、深度学习2、自动编码器3、鲁棒性<br>8、鲁棒性决定了计算机能否在危险环境或异常情况下继续存活下去<br>作为人工智能领域的前沿课题，鲁棒性研究还需要更好地向非线性系统扩展<br>第六章<br>人工智能对人类社会的影响<br>1、    语音助手：Siri<br>2、    智能家居<br>中国机器人产业链尚不完善，国内没有能够提供规模化且性能可靠地减速机等核心部件企业，本体核心技术被外资垄断<br>失业、就业<br>第七章<br>信息奇点：让人类永生还是做人类的主人<br>1、不能模仿人类思维的人工智能称为“弱人工智能”，反之为“强人工智能<br>2、人工智能须造福大众。”</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>调研报告</title>
+    <url>/2020/10/31/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/</url>
+    <content><![CDATA[<p>关于图像识别、CV、视频理解的调研报告<br>人工智能（即AI）是一个很大的体系，有远不止机器学习这个理论的理论体系，有远不止计算机视觉这个应用的应用领域。<br>如今依然是弱AI百花齐放的时代，一句话解释：阿尔法狗是不认识狗的。当强AI的时代来临，AI将变成人类这种通才，但是又可以兼具阿尔法狗的围棋能力，又兼具深蓝的博学多才。<br>我们可以把人工智能这个庞然大物看作一个超级生命，下面来看一下它的生存能力图：<br> <img src="/2020/10/31/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%94%9F%E5%AD%98%E8%83%BD%E5%8A%9B%E5%9B%BE.png" alt="人工智能生存能力图"></p>
+<p>Computer Vision（计算机视觉）和 Natural Language Processing （自然语言处理）一直是两个独立的研究方向。计算机视觉是一门研究如何使机器“看”的科学，而自然语言处理是人工智能和语言学领域的分支学科，主要探索的是如何使机器“读”和“写”的科学。它们相通的地方是，都需要用到很多机器学习，模式识别等技术，同时，它们也都受益于近几年的深度神经网络的进步，可以说这两个领域目前的 state-of-art，都是基于神经网络的，而且很多任务，比如 CV 里的物体识别检测，NLP 里的机器翻译，都已经达到了可以实用的程度。于是从 2015 年开始，有一个趋势就是将视觉与语言进行一定程度的结合，从而产生出一些新的应用与挑战。比如 image captioning，visual question answering（视觉问答） 等比较经典的 vision-and-language 任务。<br>在经典的 vision-language 任务上，比如 image captioning 和 VQA（Visual Question Answering），能够增长的空间已经很小，已经过了暴力的通过数据去学习的阶段。真正的挑战其实是一些细分的领域，比如多样性、可控性、推理以及如何将 vision-language 应用在真实的场景当中。<br>结合计算机视觉、机器人领域5大顶会（CVPR/ICCV/IROS/ICRA/ECCV），以及产业界的需求，现有3个当下热门及前沿的研究领域：<br>1、三维视觉<br>三维视觉是传统的研究领域，但最近5年内得到快速发展。三维视觉主要研究内容有：三维感知（点云获取及处理）、位姿估计（视觉SLAM）、三维重建（大规模场景的三维重建、动态三维重建）、三维理解（三维物体的识别、检测及分割等）。<br>2、视频理解<br>随着新型网络媒体的出现，以及5G时代的到来，视频呈现爆炸式增长，已成为移动互联网最主要的内容形式。面对于海量的视频信息，仅靠人工处理是无法完成的，因此实现视频的智能化理解则成为了亟待解决的问题。自2012年，深度学习在图像理解的问题上取得了较大的突破，但视觉理解比图像的目标检测识别要复杂的多。这是因为视频常有许多动作，动作往往是一个复杂概念的集合，可以是简单的行为，但也可能是带有复杂的情绪、意图。举个简单的例子，对一段视频分类，与对一幅图像分类，哪个更容易一些？从最近几年知名的计算机视觉竞赛，也可以看出，图像层面的竞赛在减少，视频层面的竞赛在增加。<br>3、多模态融合<br>多模态融合的知识获取是指从文本、图片、视频、音频等不同模态数据中交叉融合获取知识的过程。<br>随着计算机视觉越来越成熟之后，有一些计算机视觉解决不了的问题慢慢就会更多地依赖于多个传感器之间的相互保护和融合。</p>
+<p>关于CV和实际工作需求方面的调研：<br>1、本人机器人&amp;无人驾驶研发从业两年，个人感觉这个CV行业供求关系是不平衡的。其次发文章不代表你的工程和产品能力好，不发文章也不能证明你的工程能力差。所以我的建议是在学习期间先把技能掌握好，比如CV的基本算法。<br>从基本的图像处理开始，二值化–光留—霍夫变换<br>识别，roi–各种算子<br>直到CNN网络                                          —-2018年<br>2、开始一直执迷于算法工作，其实我觉得我们这个做算法做好的都是一些创业型公司。 后来又担心去了公司做“调参侠”，最后的最后放弃了算法，改做研发了。我知道别人也有这样情况的，跟我想的差不多，最后去做了后台研发。这样的话不应该在这说，可能会给大家带不好的头【但其实我自己也不清楚去公司是不是去调参，我也只是看网上有人说，又看了某些人的微博动态罢了】 但是一直又放不下，感觉学的还不错，但是要全部丢掉了，舍不得。 最重要的是很多人说人工智能是未来的趋势，可能我们会被迷惑，也不能这样说，好像也确实是趋势，反正我是蛮纠结的，目前的定位不是算法。希望你也可以想清楚吧。                                            —2016年<br>3、面试造航母, 工作拧螺丝。<br>4、个人觉得人才并没有过剩，甚至还短缺。若干人以为学过cs231n等一些课，然后会import一些库或者git clone，就声称自己熟悉相关领域了。很多人对自己所做的任务也没有很好地调研，比如不知道目标检测应该分成one stage和two stage的方法，具体这些方法有什么异同，同类方法有什么不同之处。个人觉得还是应该静下心来，读点论文，至少知道领域上下几十年，然后写点代码，做点项目，成为一个有用的人吧。另外目前CV领域还有很多问题可以去解决，比如三维视觉，虽然这个领域还会牵扯到图形学了，但是毕竟这个世界还是三维的。还有比如visual reasoning，做一些带推理的VQA或者caption。再比如Person Re-ID、Activity Recognition等等。总之，人才大多情况下不会过剩，有些只是虚假繁荣吧，要想立足还是必须要有真才实学的，不然多读读书、写写代码。 —2019年<br>    5、<br>(1)先说最熟悉的CV， CV大公司和小公司差距非常大，基本上被旷视，云从，百度等垄断。他们不光垄断了市场，垄断了技术，甚至还垄断了高校，云从+南洋理工，旷视+西交，南大，港科大，上科大，百度更不用说，吴恩达等都曾在职过。巨头拥有的海量数据和资本支撑再配合上高校恐怖的科研能力(一个实验室一堆免费的研究生搬砖)。有几家公司能抗衡?更别提现在就连高校都快被抢完了，我曾在职的公司就勉强争取到了上海某985高校的合作。还有大量没钱没资源的公司根本拿不到合作。这些都导致了CV领域被巨头占领，普通公司生存环境越来越恶劣，大部分已经跑到工业领域降维打击去了。企业的情况基本就是研发岗位的现状，想进小厂，有个硕士文凭，做过视觉相关就能进，但是，要想搞出像样的算法，非大厂不可，而大厂的算法都有超级大牛们带头，应届生去也是搬砖，不过提升应该很快，搬几年砖空降某些原来做视频方面的厂搞算法，基本就是带头大哥。<br>(2)音频，我曾入职一家专门做音频和nlp的创业公司，大牛非常多，硕士，博士博后一大把。问题是没数据，没落地方案。国内专业做音频的也就讯飞和一堆xx精灵，xx同学，市场不大，暂时还在开拓应用场景，做的人也比较少。基本都要结合nlp做语音识别（感觉还不如搞nlp)<br>(3)Nlp，范围挺大，手机助手，xx精灵，xx搜索，xx翻译，知识图谱等等都要用。算是Al比较高逼格的领域，也是近期热门，顶会paper也很多，取得突破的话应该能使人工智能往前迈进一大步。喜欢研究的话可以深耕这个领域。<br>(4)推荐系统，这个方向是我现在选定的方向，就业面很广，kaggle上的比赛基本都能打，广告推荐，用户画像基本各个互联网公司都要用。门槛比较低，毕竟机器学习入门就是线性回归。<br>(5)金融，了解不多，据业内前辈说是一个比较独立的领域，金融互联网行业是现在最赚钱的行业，想来以后待遇不会差。        —2019年</p>
+<p>关于个人想研究的方向（学习规划）：<br>    首先，个人看来要先学习的内容是：<br>课程方面：<br>1、数据分析<br>机器学习的主要前提是数据分析，数据分析是完成工作所需的第一项技能。<br>    2、Coursera（大型公开在线课程项目）上一门免费的机器学习课程<br>    一边跟着吴恩达的课，一边看李沐大佬的动手学深度学习。<br>    3、神经网络、卷积神经网络<br>卷积神经网络，也就是convolutional neural networks （简称CNN），现在已经被用来应用于各个领域，物体分割、风格转换、自动上色，但是，CNN真正能做的，只是起到一个特征提取器的作用！所以这些应用，都是建立在CNN对图像进行特征提取的基础上进行的。<br>    卷积神经网络 (LeCun 等, 1998) 作为深度学习的代表性网络，在图像识别、目标检测等方面取得了巨大的成功。卷积神经网络通过使用可训练的滤波器和特征池化操作的层次结构，自动学习视觉目标识别任务所需的复杂特征，从而实现比手工制作特征卓越的性能。直接将原始图像输入网络便可得到特征，传统算法往往需要复杂的特征设计以及统计策略，<br>而现在只需要设计网络结构和选择训练超参数。计算机视觉领域，研究深度学习已经成为这几年的主流。              –摘自《基于深度学习的视频识别研究》</p>
+<p>第一学期打好基础，“小布慢跑”，学一个算法要学透（公式推导+代码编写）。<br>学好理论基础,磨刀不误砍柴功。</p>
+<p>工具方面：<br>1、Matlab<br>MathWork公司的Matlab软件可以说是算法研究的利器，它的强大之处在于其方便快捷的矩阵运算能力和图形仿真能力。<br>做图像处理方面的研究，Matlab是必须掌握的，而且是熟练掌握。当你有一些想法需要验证时，最好明智的先用matlab编写出来测试。如果你上来就用看似高大上的C++来实验，不仅错误BUG一大堆，到头来可能效果还不佳，就算效果好，时间也会耽搁不少，毕竟算法开发还是要快的，这样才能赶在别人之前发论文。总之，只要是接触图像算法，终究逃不过Matlab。<br>    2、OpenCV<br>Opencv是Intel公司开发的C++图像处理工具包，形象的理解为就是C++版的Matlab。当初Intel公司开发这个工具包的初衷也是方便大家共享，希望大家能够在一个共同架构的基础上共同建造摩天大楼，而不是各自在自己的地基上盖平房。与Matlab不同，Opencv是面向开发的，稳定性好，异常处理机制周全，但有一点需要注意，由于Opencv是开源的，那么如果你在项目中直接调用了它的API，那就意味着你的项目也必须开源。因此在真正的产品开发过程中，往往需要从Opencv库里面挖代码，而不是直接调用。<br>3、Python<br>Python在图像处理算法方面除了其自身简洁的编程优势外，还得益于两个重要的Python类库——Numpy和Theano。<br>Numpy是Python的线性代数库，对于矩阵运算能提供很好的支持，并且能够在此基础上进行很多机器学习相关算法的开发仿真。</p>
+<pre><code>最后是关于研究方向：图像分割</code></pre><p>图像分割分为语义分割和实例分割两种方式，语义分割是根据图像的语义信息来进行分割，在无人驾驶系统中主要用于可通行区域检测、车道线检测等。实例分割是在语义分割的基础上提出来的新概念，不仅可以预测像素所属类别，还能够区别同一类别的不同实例，主要用于车辆、行人等可数目标的识别与距离判断语义分割是指像素级的图像理解，即对图像中的每个像素标注所属的类别。<br>国内外研究现状：<br>图像分割是计算机视觉中的一种重要的图像预处理方法，是根据图像的灰度变化、空间纹理、几何形状等特征把图像划分成若干个互不相交的区域，使得这些特征在同一区域内具有一致性或相似性，而不同区域之间具有明显的不同点。<br>传统的图像分割方法多数只利用了图像的低层特征，较为经典的算法有基于阈值的图像分割、基于边缘检测的图像分割以及基于图论的图像分割等。近年来，随着深度学习的发展，研究重点发展为图像的高层特征，先后提出了语义分割和实例分割的概念，并将先验知识引入到了图像分割算法中，推出了新的算法理念。<br>语义分割对于无人驾驶感知系统的场景解析具有重要的作用，目前，常用于无人驾驶的语义分割网络主要有：ｖｉｊａｙ等人［３２］提出编码器－解码器网络结构，成为经典的图像分割网络结构之一，常用于可通行区域的分割；Ｌｉｎ等人［３３１提出一种多阶段的提炼网络，采用长距离残差连接，能够有效的将下采样中缺失的信息融合进来，提高了对于道路上的小目标的分割精度；Ｚｈａｏ等人％］提出一种金字塔场景解析模块，能够聚合不同区域的上下文信息，在目前的无人驾驶的图像分割算法中被广泛应用；Ｈａｎｇ等人［３５］提出了一种上下文编码网络，用于捕获场景的上下文语义并选择性的突出与类别相关的特征图，在复杂的道路场景中的分割结果具有明显的改善。上述方法在空间维度和特征通道两个方面均提出了很多新的提升图像分割精度的方法。<br>实例分割是在语义分割的基础上，不仅可以预测像素所属类别，还能够区别同一类别的不同实例。用于无人驾驶技术的实例分割网络主要有：Ｂａｅｋ等人提出一种基于环视监控的无人驾驶场景解析网络，实现了在环视图像中进行车辆的实例分割，对于无人驾驶的感知系统具有重要的意义；Ｋｉｒｉｌｌｏｖ等人提出一种全景分割方法，通过将扩张卷积增强的语义分割网络与具有特征金字塔骨架的实例分割网络相结合的方法，用于无人驾驶感知系统，对摄像头范围内的场景进行全方位的解析；Neven等人提出一种端到端的车道线实例分割算法，分为分割和聚类两个部分，在应用中不受所需检测车道数的限制，同时还能应对车辆变道，为无人驾驶系统的车道线识别开辟了新的研究方向。<br>基于深度卷积网的图像分割<br>随着深度学习的发展，基于深度卷积网的图像分割方法在一定程度上取代了传统的方法成为目前主流的图像分割方法。将深度卷积网应用到图像分割领域最重要的突破是实现了网络模型的全卷积化，从而将图像分割任务实现端到端得训练。随后提出了编码器－解码器的网络结构，以及空洞卷积、特征聚合等多种优化图像分割的方法，对于图像分割技术的发展均具有重要的意义。<br>—摘自《基于深度学习的无人驾驶图像分割算法研究》</p>
 ]]></content>
   </entry>
 </search>
