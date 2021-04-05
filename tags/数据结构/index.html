@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>数据结构之线性表 | Hexo</title>
+  <title>Tag: 数据结构 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="数据结构之线性表">
-<meta property="og:type" content="article">
-<meta property="og:title" content="数据结构之线性表">
-<meta property="og:url" content="http://yoursite.com/2020/10/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E7%BA%BF%E6%80%A7%E8%A1%A8/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="数据结构之线性表">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-10-06T12:06:42.000Z">
-<meta property="article:modified_time" content="2021-04-05T06:10:15.364Z">
 <meta property="article:author" content="张维">
-<meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -172,83 +167,35 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-数据结构之线性表" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 class="article-title" itemprop="name">
-      数据结构之线性表
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/10/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="archive-article-date">
+  	<time datetime="2020-10-06T12:06:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-06</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/10/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E7%BA%BF%E6%80%A7%E8%A1%A8/">数据结构之线性表</a>
     </h1>
   
 
-        
-        <a href="/2020/10/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E7%BA%BF%E6%80%A7%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2020-10-06T12:06:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>数据结构之线性表</p>
-<a id="more"></a>
-<p>3个项目：<br>1、    电话簿<br>2、    迷宫<br>3、    自助交易系统</p>
-<p>线性表：一对一的关系</p>
-<p>7个内容</p>
-<p>1、    定义：n个同类型数据元素的有限序列<br>特点：ai的数据类型相同 位序i从1开始 前驱与后继</p>
-<p>2、    抽象数据类型<br>数据对象 数据关系 基本操作</p>
-<p>基本操作：1、结构初始化操作2、结构销毁操作3、引用型操作4、加工型操作</p>
-<p>具体问题具体分析</p>
-<p>为什么要研究线性表、树、图这三种数据结构？如何对这些结构进行研究？</p>
-<p>合并线性表：<br>合并两个图书馆的所有书籍<br>思想：假设有两个线性表A和B，从B线性表依次读入每一本书的信息，然后查询A是否存在这本书，如果是，则数量增加；否则插入到A线性表中，直到B线性表的所有数据都处理完<br>细化：逐一：从第一个到最后一个，计数型循环，前提是知道元素个数 List_Size<br>    如何取出第i个数据元素bi?<br>        List_Retrieve(Lb,I,&amp;elem)<br>    如何判断bi是否已在A中<br>        List_Locate(La,elem,&amp;j)<br>            返回success or false<br>    如何不在A中，怎么样将bi插入呢<br>        List_Insert(La,1,elem)</p>
-<p>算法：<br>Status List_Union(SqListPtr La,SqListptr Lb)<br>{<br>    ElemType elem;//存放从Lb中取出的元素<br>    Status status;<br>    int i,j,len=List_Size(Lb);//len存放Lb的元素个数<br>    for(i=1;i&lt;=len;i++)<br>    {<br>        List_Retrive(Lb,i,&amp;elem);//取出Lb中第i个数据元素<br>        status=List_Locate(La,elem,&amp;j);//判断是否在A中<br>        if(status!=success)<br>        {<br>            status=List_Insert(La,1,elem);//插入<br>            if(status!=success) break; //失败则退出<br>        }<br>        else List_Add(La,j,1)//La的第j个数据加1<br>    }<br>    return status;<br>}</p>
-<p>分析：最好情形分析：B为A前面的部分元素<br>最坏情形分析：B∩A为空<br>选数据元素少的作为Lb 这样n越小，性能越好</p>
-<p>时间复杂度O（n2）</p>
-<p>合并有序表<br>时间复杂度O（n）</p>
-<p>分析 ：依次扫描 插入</p>
-<p>Status List_Merge(SqListPtr La,SqListptr Lb,SqListptr Lc)<br>{<br>    ElemType elem1,elem2;<br>    status=List_Init(Lc);<br>    int i=1,j=1,k=1//i,j,k分别用于指示La，Lb，Lc中当前元素<br>    int n=List_Size(La),m=List_Size(Lb);<br>    while(i&lt;=n&amp;&amp;j&lt;=m)<br>    {<br>        List_Retrive(La,i,&amp;elem1);//取出La中第i个数据元素<br>        List_Retrive(Lb,i,&amp;elem2);//通过这个函数获取Lb中的第i个元素，存放到elem2当中<br>        if(elem1&lt;elem2)<br>        {<br>            status=List_Insert(Lc,k,elem1);//如果elem1小,就把它插入到Lc当中<br>            i=i+1;<br>        }<br>        else<br>        {<br>            status=List_Insert(Lc,k,elem2);<br>            j=j+1;<br>        }<br>        k=k+1;//无论插入那个，k都要➕1<br>    }<br>    while(i&lt;=n)//表La没处理完<br>    {<br>        List_Retrieve(La,i,&amp;elem1);<br>        status=List_Insert(Lc,k,elem1);<br>        i=i+1;<br>        k=k+1;<br>    }<br>    while(j&lt;=m)//表Lb没处理完<br>    {<br>        List_Retrieve(Lb,i,&amp;elem2);<br>        status=List_Insert(Lc,k,elem2);<br>        j=j+1;<br>        k=k+1;<br>    }<br>    return status;<br>}</p>
-<p>这里插入一个问题<br>单链表插入一个元素<br>Status ListInsert L(LinkList &amp;L,int i,ElemType e)<br>{<br>//在带头结点的单链线性表L中第i个位置之前插入元素e<br>p=L; j=0;<br>while(p&amp;&amp;j&lt;i-1)//寻找第I-1个节点<br>{<br>      p=p-&gt;next;<br>      ++j;<br>}<br>if（!p||j&gt;i-1）//i小于1或大于表长<br>return ERROR;<br>s=(LinkList)malloc(sizeof(LNode));//生成新节点<br>s-&gt;data=e;    //插入L中<br>s-&gt;next=p-&gt;next;<br>p-&gt;next=s;<br>return OK;<br>}</p>
-<p>线性表的顺序存储结构<br>    用一组地址连续的存储单元依次存放线性表中的数据元素</p>
-<p>前驱后继关系非常容易找</p>
-<p>可以随机存取数据：无论要找什么位置的数据，访问的速度都非常快。常数时间就可以访问<br>顺序存储结构的实现：<br>用结构来整合：<br>空间如何分配？<br>静态：数组   动态：指针<br>typedef struct SqList<br>{<br>    ElemType <em>elem;<br>    int length;<br>    int list_size;<br>}SqList,</em>ptr;<br>typedef Ptr SqlListPtr;</p>
-<p>ElemType 这个数据类型 具体问题具体分析  整数int 字符型char</p>
-<p>1、    基本操作<br>1、初始化 创建线性表<br>c语言中没有baistatus这个关键字。<br>但一般写程序du时，会定义这样的一个类型，zhi用来表示成功或dao失败状态。<br>如：0表示成功，-1表示失败<br>这样status就可以定义成int类型，如：<br>typedef int status ;<br>然后用它去定义变量或函数返回值类型，</p>
-<p>Status List_Init(SqListPtr L)<br>{<br>    Status s=success;<br>    L-&gt;list_size=LIST_INIT_SIZE;<br>    L-&gt;length=0;<br>    L-&gt;elem=(ElemType <em>)malloc(sizeof(ElemType)</em>L-&gt;list_size);<br>    if(L-&gt;elem==null)<br>        s=fatal;<br>    return s;<br>}<br>时间复杂度 O(1)</p>
-<p>2、查找<br>        按位置查找<br>Status List_Retrival(SqListPtr L,int pos,ElemType *elem)//在线性表L当中 找pos这个元素 如果找到放到elem指针当中 Status 的返回值就是查找是不是成功的状态信息<br>{<br>    Status s=range_error;//初始时给一个查找失败 越界错误<br>    if(L){//意为线性表存在的情况下<br>        if((pos-1)&gt;=0&amp;&amp;(pos-1)<L->length)//我们的pos 是1到n C语言第一个位置是0<br>        {<br>            *elem=L-&gt;elem[pos-1];//把elem pos-1的值赋给指针<br>            s=success;<br>        }<br>    }<br>    else<br>        s=fatal;<br>    return s;<br>}</L-></p>
-<p>时间复杂度也是常数的时间复杂度</p>
-<pre><code>按值查找</code></pre><p>Status List_Retrival(SqListPtr L,ElemType elem,int *pos)//找elem在线性表中的位置，放到pos当中<br>{<br>    Status s=range_error;<br>    if(L){<br>        for(int i=0;i<L->length;++i)<br>        {<br>            if(L-&gt;elem[i]==elem){<br>                *pos=i+1;<br>                s=success;<br>                break;<br>            }<br>        }<br>    }<br>    else<br>        s=fatal;<br>    return s;<br>}<br>时间复杂度O（n）<br>线性表的链式存储结构<br>单链表：用一组地址任意的存储单元存放线性表中的数据元素<br>数据域和指针域</L-></p>
-<p>头指针与空指针<br>空表时头结点的指针域为空</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢阅读0v0<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -260,128 +207,57 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://zhangwei19980131.github.io/2020/10/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E7%BA%BF%E6%80%A7%E8%A1%A8/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2020/10/18/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          人工智能导论笔记
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/10/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%88%E5%BC%80%E5%A4%B4%E9%83%A8%E5%88%86%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">数据结构笔记（开头部分）</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/10/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%88%E5%BC%80%E5%A4%B4%E9%83%A8%E5%88%86%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2020-10-05T15:09:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-05</time>
+</a>
         </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    目录，不存在的…
-                    </div>
-                </span>
-            </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/10/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%88%E5%BC%80%E5%A4%B4%E9%83%A8%E5%88%86%EF%BC%89/">数据结构笔记（开头部分）</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
         </div>
-        
-    </div>
-</aside>
-
-
-
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
   
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -407,9 +283,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
