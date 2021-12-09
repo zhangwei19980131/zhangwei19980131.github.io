@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="AliceMerser">
+    
+    
+    
+    
+    
+    
+    <title>VGGNet | 夜忆香</title>
+    <link href="http://example.com" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+    <script>
+      AV.init({
+        appId: 'f5IN9CgqVuuyU4VvWx6JeIHr-gzGzoHsz',
+        appKey: 'YkqMByAI8NsEcN6CuIpgMQxh'
+      })
+    </script>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="夜忆香" type="application/atom+xml">
+</head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://example.com">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">夜忆香</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/JAVA/">JAVA</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/Markdown/">Markdown</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/">神经网络模型</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/">三维重建</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://example.com">夜忆香</a>
+        >
+        <span>VGGNet</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2021/08/02/VGGNet/">VGGNet</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/">神经网络模型</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2021-08-02
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2021/08/02/VGGNet/">VGGNet</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2021-08-02
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/">神经网络模型</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h2 id="第一张ppt"><a href="#第一张ppt" class="headerlink" title="第一张ppt"></a>第一张ppt</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHO0I"><img src="https://z3.ax1x.com/2021/08/07/fuHO0I.jpg" alt="fuHO0I.jpg"></a></p>
+<p>首先介绍一下VGG是什么…</p>
+<p>论文题目：应用于大规模图像识别的非常深的卷积网络。</p>
+<p>VGGNet最主要的目标是试图回答“如何设计网络结构”的问题。随着AlexNet提出，很多人开始利用卷积神经网络来解决图像识别的问题。一般的做法都是重复几层卷积网络，每个卷积网络之后接一些池化层，最后再加上几个全连接层。而VGGNet的提出，给这些结构设计带来了一些标准参考。</p>
+<p>虽然VGGNet是比较老，14年提出，但是现在还在用，比如说SSD 使用单个深度神经网络来检测图像中的目标的方法，是目标检测中应用最广泛的算法，前端使用VGG16网络，</p>
+<p>所以我们需要了解一下。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013044310/article/details/89380273">https://blog.csdn.net/u013044310/article/details/89380273</a></p>
+<p>贡献：</p>
+<h2 id="第二张ppt"><a href="#第二张ppt" class="headerlink" title="第二张ppt"></a>第二张ppt</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHLnA"><img src="https://z3.ax1x.com/2021/08/07/fuHLnA.jpg" alt="fuHLnA.jpg"></a></p>
+<p>论文中，作者的主要目标是探索深度学习深度的影响。作者固定了网络中其他的参数，通过缓慢的增加网络的深度来探索网络的效果。这个表格里给了我们6个VGG网络的配置，</p>
+<p>有11层、13层、16层和19层、还有这里是否是用LRN，这种规范化并不能提高在ILSVRC数据集上的性能，我们常用的是VGG16、16是怎么来的，13个卷积层和3个全连接层。我们观察表格，A和A-LRN都是11层，这个使用了LRN，C和D的区别一个卷积核是1<em>1，一个是3</em>3。</p>
+<p>VGGNet最重要的贡献证明了分类任务可以通过使用小的卷积核增加CNN的深度来提高精度。</p>
+<h2 id="第三张ppt"><a href="#第三张ppt" class="headerlink" title="第三张ppt"></a>第三张ppt</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHvAP"><img src="https://z3.ax1x.com/2021/08/07/fuHvAP.jpg" alt="fuHvAP.jpg"></a></p>
+<p>这一部分主要是讲如何通过堆叠两个3×3的卷积核来替代大尺度的卷积核，先要了解一个感受野的感念。</p>
+<p>通俗的解释是，输出feature map上的一个单元对应输入层上的区域大小。我们来看这样一个例子，在我们左边，最下面呢是一个9<em>9</em>1的一个特征矩阵，首先我们通过一个卷积层1、它的大小是3<em>3，步长为2，根据公式我们会得到1个4</em>4<em>1的这么一个大小，然后在经过一个最大池化下采样的一个操作，它所得到的特征层大小是2</em>2<em>1。所以在我们第三层中一个单元对应到我们第二层的感受野就是一个2</em>2的一个区域，对应到我们原图的感受野就是一个5<em>5的区域，那这个2</em>2与5*5怎么计算呢</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHX7t"><img src="https://z3.ax1x.com/2021/08/07/fuHX7t.jpg" alt="fuHX7t.jpg"></a></p>
+<p>我们把第三层的一个单元带入公式进行计算，感受野是从后往前推算的，所以说我们第三层的一个单元在原图当中有5*5这样一个感受野</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHzh8"><img src="https://z3.ax1x.com/2021/08/07/fuHzh8.jpg" alt="fuHzh8.jpg"></a></p>
+<p>VGG网络中Stride默认是等于1的。我们假设现在一个特征矩阵经过3层3<em>3的卷积得到一个feature map，那么feature map上的一个单元所对应我们上一层的感受野，那就是1-1</em>1+3等于3，我们在计算上一层的3-1<em>1+3 =5，我们在计算上一层5-1</em>1+3=7。也就是说我们经过3层3<em>3的卷积得到的特征图上的一个单元对应的感受野就是7</em>7的大小，那也就和我们采用一个7*7的一个卷积核是一样的。</p>
+<p>那么我们这样做的目的是就是为了减少参数、这两个C分别的代表卷积核的深度以及个数</p>
+<p>很明显我们的参数减少了很多。</p>
+<h2 id="第四张ppt"><a href="#第四张ppt" class="headerlink" title="第四张ppt"></a>第四张ppt</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fubp9S"><img src="https://z3.ax1x.com/2021/08/07/fubp9S.jpg" alt="fubp9S.jpg"></a></p>
+<p>我们通常使用D这个模型</p>
+<p>首先呢，我们的输入图像是224<em>224</em>3这样一个RGB图像，然后我们通过两层3*3的一个卷积层，然后maxpool最大下采样……然后在经过3个FC层，然后在经过一个softmax处理，就得到我们的一个概率分布了。那么我们这个表中并没有给出参数计算，所以这里简单介绍一下、卷积层stride=1、padding=1、我们带入公式、-Fsize 也就是-3 +2P +2 /1不用考虑也就是-1 再加1 化简也就是 卷积层中outsize = input size 也就是经过卷积输出尺寸和输入尺寸是一样的。池化我们代入计算，-2 + 这里P=0，然后除以2 +1 约掉之后相当于除以2。  结果是输出的特征图宽和高缩减为原来的一半。</p>
+<p>这样我们来看这幅图 黑色框…红色框</p>
+<p>第一个卷积操作，我们进行了两个3<em>3的卷积层之后呢，它所得到的特征图大小是224</em>224，因为我们之前说了根据公式，outsize=inputsize，我们采用的卷积核的个数是64，那么我们输出的深度也就是64，然后是maxpool最大下采样操作，之前说过根据公式、相当于缩减一半、得到了112<em>112，池化是不改变我们的深度的，我们注意这里红色框的厚度和前面卷积层的厚度一样，所以我们得到的是112</em>112<em>64、图上标的这个112</em>112*120是下一个卷积操作的卷积层的具体值，紧接着下一个卷积操作。</p>
+<p>最后我们需要注意的是最后一个全连接层是不需要加上ReLU激活函数的，我们需要加softmax激活函数将我们的预测结果转化为一个概率分布。</p>
+<h2 id="第五张ppt"><a href="#第五张ppt" class="headerlink" title="第五张ppt"></a>第五张ppt</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fub91g"><img src="https://z3.ax1x.com/2021/08/07/fub91g.jpg" alt="fub91g.jpg"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fubCcQ"><img src="https://z3.ax1x.com/2021/08/07/fubCcQ.jpg" alt="fubCcQ.jpg"></a></p>
+<p>​       德国有一个激光切割领域的博士，他把VGG做了一个改进，他用最后的全连接输出直接回归了所有参数。就像我们把激光切割的一张图片喂到模型里面，它会预测出你用的是什么样的激光切割的工艺量。比如说焦点深度，进给量，保护气的气压等等。而目前的话人类是做不到这一点。</p>
+<p>​        他改进的VGG模型，预测出激光切割的一个工艺参数，并且远远超过了人类专家的水平。</p>
+<p>​        第二个贡献是：用已有的可视化的方法，类似于我们热力图的方法，标记出了预测值贡献最大的区域，他向专家和工人们展示了这样的结果，提高了专家和工人们预测参数的能力，这就不仅仅是人教机器学习了，不是machine learning 而是machine teaching</p>
+<p>​        所以总结来说他就是用了自己领域的数据集，改动了一下VGG，训练了一个远强于人类专家的网络，并且还让这个网络教会了人提高自己的技能。</p>
+<p>​        我们看到这个人写了很多激光加工领域的论文，因为做激光加工领域的人不懂计算机视觉，而真正内卷计算机视觉的人他不懂激光切割。所以当我们学会了这个技能是可以借助这种信息不对称，用计算机视觉和AI赋能到我们自己的行业，这是我觉得目前AI领域所能为社会创造价值的途径，如果我们只是局限于改改trick，调参，炼丹，为了kaggle上的一个竞赛去刷榜，比别人高个一些精确度而努力，这些呢我觉得对于我来说可能也是一个需要经历的过程，但意义不大。而我们把这些技术应用于自己的垂直领域，垂直行业，甚至说之前看上去跟CV或者是计算机无关的领域。</p>
+<p>​         现在CV发展非常的快，这些算法也大大降低了AI开发的水平面，这个水平面降下来以后呢很多领域都可以使用人工智能来达到该领域最优的性能，这也是摆脱内卷的一个途径。现在人工智能各种开发的设施都已完备，数据集，算力，算法都已完备了，缺的就是能够为各行各业有实际落地应用价值的人才。</p>
+<h2 id="软件开发领域的人工智能"><a href="#软件开发领域的人工智能" class="headerlink" title="软件开发领域的人工智能"></a>软件开发领域的人工智能</h2><h3 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h3><p>​        作为软件生命周期（Software Development Life Cycle，即SDLC）中的一个概念梳理环节，收集客户需求很大程度上依赖人工介入。</p>
+<p>​        对此，AI技术提供了一些技术工具，譬如的Google ML Kit和Infosys Nia，它们可以通过AI使某些过程实现自动化，从而在一定程度上将人为干预最小化。</p>
+<p>​        在这个阶段中可以将设计前的漏洞检测纳入工作流程。一种称为“自然语言处理”（Natural Language Processing）的AI技术通过让机器理解自然语言去了解用户需求，并产出高级软件模型，当然，这种方法存在一些问题，包括难以在已开发的系统间作出平衡，但它仍旧是当今的热门研究主题之一。</p>
+<p>​        项目的规划和设计需要依靠大量的经验积累来提出一个明确的解决方案。</p>
+<p>​        设计工作每个阶段都有一个“共同认可”的结果，其实这对设计师来说是非常困难的，现实是设计师通常需要多次来回修改方案，直到客户满意为止。如果借助AI自动执行一些复杂的程序来满足客户需求，以此方法来产出方案，将会大大提高效率。</p>
+<h3 id="代码自动生成"><a href="#代码自动生成" class="headerlink" title="代码自动生成"></a>代码自动生成</h3><p>​        在软件开发启动前，我们通常要去理解一个无比巨大的项目的实际目标以及需求方的各种细碎想法，这往往非常耗时，其间的大量沟通可以视作一种“重复性工作”。</p>
+<p>​        为了节省时间和金钱，专家们提出了一种在开始开发启动前先编写部分代码的解决方案，不过，这种方法存在很多不确定性，譬如，该前置编写代码阶段也需要拿到一些信息，如果此时信息仍不清晰，这样的前置工作是无效的。</p>
+<p>​        这时通过人工智能介入信息收集，即，通过自然语言把思路告知智能系统，这样的前置风险就会被大大降低，因为智能系统效率高于人工，同时不会去“抱怨”客观条件下的小小弯路。</p>
+<h3 id="测试服务中的AI"><a href="#测试服务中的AI" class="headerlink" title="测试服务中的AI"></a>测试服务中的AI</h3><p>​        软件测试是软件开发中的关键阶段，一定程度上可保证软件产品的质量，但如果每次更改源代码时都需要重复测试，既费时又费钱。</p>
+<p>​        AI又可以在这个阶段起到作用——目前已有部分工具可使用AI创建测试用例并执行回归测试，这些AI工具可以自动化测试，并进一步确保测试无错误。</p>
+
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = 'VGGNet'
+    }
+</script>
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            AliceMerser
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    <aside id="sidebar-hot_posts">
+    <div class="panel panel-gal hot hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-fire"></i>
+            最热文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/12/09/typora%E4%B8%8B%E7%BC%96%E5%86%99Markdown%E6%96%87%E4%BB%B6/">Typora使用笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/12/09/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/10/04/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/">图像分割</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/26/%E5%9F%9F%E5%90%8D%E5%A4%87%E6%A1%88/">域名备案</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/14/%E6%B7%B1%E5%BA%A6%E7%9B%B8%E6%9C%BA/">深度相机</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/03/OpenMVG-PMVS%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/">OpenMVG+PMVS三维重建入门使用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/ResNet/">ResNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/GoogLeNet/">GoogLeNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C%E4%B8%8E%E5%BC%95%E6%93%8E/">游戏制作与引擎</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/24/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%AE%80%E4%BB%8B/">三维重建简介</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/GoogLeNet/">GoogLeNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/02/VGGNet/">VGGNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/24/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%AE%80%E4%BB%8B/">三维重建简介</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/06/%E5%85%B3%E4%BA%8Ehexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">关于hexo博客的一些问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/10/04/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/">图像分割</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/26/%E5%9F%9F%E5%90%8D%E5%A4%87%E6%A1%88/">域名备案</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/10/06/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E7%BA%BF%E6%80%A7%E8%A1%A8/">数据结构之线性表</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/04/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E7%AB%A0/">机器学习第二章</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C%E4%B8%8E%E5%BC%95%E6%93%8E/">游戏制作与引擎</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/05/AlexNet%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%8E%B0/">AlexNet代码复现</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2021/08/02/VGGNet/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2021/08/02/VGGNet/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2021/08/02/VGGNet/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" style="font-size: 12.679260262590866px;" class="tag-cloud-link">神经网络模型</a>
+    
+    <a href="/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/" style="font-size: 11.726858209187572px;" class="tag-cloud-link">三维重建</a>
+    
+    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 17.70717604794293px;" class="tag-cloud-link">神经网络</a>
+    
+    <a href="/tags/Spring/" style="font-size: 8.081857449334604px;" class="tag-cloud-link">Spring</a>
+    
+    <a href="/tags/Gitalk/" style="font-size: 13.570923405391017px;" class="tag-cloud-link">Gitalk</a>
+    
+    <a href="/tags/%E4%B8%89%E7%BB%B4%E7%82%B9%E4%BA%91/" style="font-size: 10.17409040607783px;" class="tag-cloud-link">三维点云</a>
+    
+    <a href="/tags/hexo/" style="font-size: 8.660195834972445px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/" style="font-size: 8.366368515275418px;" class="tag-cloud-link">图像分割</a>
+    
+    <a href="/tags/%E5%A4%87%E6%A1%88/" style="font-size: 11.603335766696137px;" class="tag-cloud-link">备案</a>
+    
+    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 19.08767078551768px;" class="tag-cloud-link">数据结构</a>
+    
+    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 18.00834101716656px;" class="tag-cloud-link">机器学习</a>
+    
+    <a href="/tags/%E6%B7%B1%E5%BA%A6%E7%9B%B8%E6%9C%BA/" style="font-size: 14.640202101170626px;" class="tag-cloud-link">深度相机</a>
+    
+    <a href="/tags/RGB-D/" style="font-size: 8.607658860423705px;" class="tag-cloud-link">RGB-D</a>
+    
+    <a href="/tags/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C/" style="font-size: 9.425306733028064px;" class="tag-cloud-link">游戏制作</a>
+    
+    <a href="/tags/%E5%BC%95%E6%93%8E/" style="font-size: 8.537839557449693px;" class="tag-cloud-link">引擎</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/zhangwei19980131" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://space.bilibili.com/284084563" target="_blank">bilibili</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 AliceMerser Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+<script>
+    window.hot_posts_count = '10'
+    // window.use_leancloud = 'true'
+</script>
+
+<script src="/js/comment/leancloud.js"></script>
+
+
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Mon Aug 02 2021 16:04:14 GMT+0800'
+      window.commentConfig.owner = ''
+      window.commentConfig.repo = ''
+      window.commentConfig.client_id = ''
+      window.commentConfig.client_secret = ''
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Mon Aug 02 2021 16:04:14 GMT+0800',
+        owner: '',
+        repo: '',
+        client_id: '',
+        client_secret: '',
+        redirect_uri: ''
+      }
+    }
+</script>
+
+<script src="/js/comment/gitment.js"></script>
+
+
+</html>

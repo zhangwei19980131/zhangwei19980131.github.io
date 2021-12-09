@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="AliceMerser">
+    
+    
+    
+    
+    
+    
+    <title>三维点云介绍 | 夜忆香</title>
+    <link href="http://example.com" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+    <script>
+      AV.init({
+        appId: 'f5IN9CgqVuuyU4VvWx6JeIHr-gzGzoHsz',
+        appKey: 'YkqMByAI8NsEcN6CuIpgMQxh'
+      })
+    </script>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="夜忆香" type="application/atom+xml">
+</head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://example.com">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">夜忆香</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/JAVA/">JAVA</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/Markdown/">Markdown</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/">神经网络模型</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/">三维重建</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://example.com">夜忆香</a>
+        >
+        <span>三维点云介绍</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2021/08/16/%E4%B8%89%E7%BB%B4%E7%82%B9%E4%BA%91%E4%BB%8B%E7%BB%8D/">三维点云介绍</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E4%B8%89%E7%BB%B4%E7%82%B9%E4%BA%91/">三维点云</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2021-08-16
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2021/08/16/%E4%B8%89%E7%BB%B4%E7%82%B9%E4%BA%91%E4%BB%8B%E7%BB%8D/">三维点云介绍</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2021-08-16
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E4%B8%89%E7%BB%B4%E7%82%B9%E4%BA%91/">三维点云</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h1 id="点云基础"><a href="#点云基础" class="headerlink" title="点云基础"></a>点云基础</h1><h2 id="点云数据"><a href="#点云数据" class="headerlink" title="点云数据"></a>点云数据</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/ffizkT"><img src="https://z3.ax1x.com/2021/08/16/ffizkT.jpg" alt="ffizkT.jpg"></a></p>
+<p>点云是某个坐标系下的点的数据集。<br>点包含了丰富的信息，包括三维坐标X，Y，Z、强度值（因为点云经常是由激光来采取的，强度是指它从表面反射回来所获取的激光能量信息）、当然我们配上相机的话就会有颜色、时间戳是跟无人驾驶有关，比如说在无人车中，车在动，每个点也在动，激光也在转，所以每个点也都有个时间戳，这个时间戳方便我们把不同的点云放到同一个坐标系下面<br>点云可以将现实世界原子化，通过高精度的点云数据可以还原现实世界。<br>上面这张图片我们可以看到是一个居民住处的点云，我们可以看到是已经做好分类的，棕黄色是屋顶，绿色是植被，剩下的是地面。<br>分类：有组织的：点云被布置为类似于图像结构的二维的点矩阵。<br>我们可以根据像素（x,y）信息来访问这个点云，大部分是由深度相机获得的。我们可以看做是一张图片，每个点它有深度信息，可以算他的三维坐标，上面图片我们就无法把它转换成一个二维的图片，除非要损失一些点的信息，这就是无组织的。<br>无组织的：点云是一个点列表<br>有序点云：一般由深度图还原的点云，有序点云按照图方阵一行一行的，从左上角到右下角排列，当然其中有一些无效点因为。有序点云按顺序排列，可以很容易的找到它的相邻点信息。有序点云在某些处理的时候还是很便利的，但是很多情况下是无法获取有序点云的。<br>无序点云：无序点云就是其中的点的集合，点排列之间没有任何顺序，点的顺序交换后没有任何影响。是比较普遍的点云形式，有序点云也可看做无序点云来处理。</p>
+<h2 id="点云获取"><a href="#点云获取" class="headerlink" title="点云获取"></a>点云获取</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/ffij00"><img src="https://z3.ax1x.com/2021/08/16/ffij00.jpg" alt="ffij00.jpg"></a></p>
+<p>最常见的是激光扫描仪了，激光打出去，然后收回来得到距离，根据传感器的位置信息就可以反算点的三维坐标就可以得到点云。LiDAR获取的数据就是点云数据，同时也对点云数据进行处理加工以及应用。<br>星载LiDAR采用卫星平台，运行轨道高、观测视野广，基本可以测量到地球的每一个角落，为三维控制点和数字高程模型的获取提供了新的途径，有些星载激光雷达还具有观察整个天体的能力。<br>机载主要借助无人机（UAV{无人驾驶飞机}/UAS{无人机系统}）进行大规模的点云数据采集。<br>地面分为三小种：地上三维激光扫描、车载MMS、手持激光扫描。<br>双目相机是模仿人眼</p>
+<h2 id="点云应用领域"><a href="#点云应用领域" class="headerlink" title="点云应用领域"></a>点云应用领域</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/ffiv7V"><img src="https://z3.ax1x.com/2021/08/16/ffiv7V.jpg" alt="ffiv7V.jpg"></a></p>
+<p>点云的应用也日益广泛，应用在机器人和无人驾驶上来获得周围环境和物体的三维信息来帮助自动驾驶的实现，还可用在AR（增强现实），VR（虚拟现实）中，还有工业设计，比如Shape Design。FaceID就是通过点云获取人脸的三维特征来作为区分人脸的标识。</p>
+<h2 id="点云相关研究"><a href="#点云相关研究" class="headerlink" title="点云相关研究"></a>点云相关研究</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/ffiXmq"><img src="https://z3.ax1x.com/2021/08/16/ffiXmq.jpg" alt="ffiXmq.jpg"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/ffiLXn"><img src="https://z3.ax1x.com/2021/08/16/ffiLXn.jpg" alt="ffiLXn.jpg"></a></p>
+<p>点云相关研究，这里只列出3个</p>
+<h2 id="点云数据集"><a href="#点云数据集" class="headerlink" title="点云数据集"></a>点云数据集</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/ffFStU"><img src="https://z3.ax1x.com/2021/08/16/ffFStU.jpg" alt="ffFStU.jpg"></a></p>
+<p>关于点云数据集，第一个3d形状分类，常见有ModelNet40、ShapeNet、ScanNet等，关于3d物体的检测和追踪，比如KITTI，是关于自动驾驶场景中所获得的一些数据集，还有ScanNetV2、Waymo Open等，对于3维点云分割，有ScanNet、S3Dis等等。</p>
+<h2 id="从传统技术到深度学习"><a href="#从传统技术到深度学习" class="headerlink" title="从传统技术到深度学习"></a>从传统技术到深度学习</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/ffFCp4"><img src="https://z3.ax1x.com/2021/08/16/ffFCp4.jpg" alt="ffFCp4.jpg"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/ffFphF"><img src="https://z3.ax1x.com/2021/08/16/ffFphF.jpg" alt="ffFphF.jpg"></a></p>
+<p>传统点云的三维重建，大都是通过一些算法构造出三维表面网格模型，比如SFM，是一种基于各种收集到的无序图片进行三维重建的离线算法，从时间系列的2D图像中推算3D信息</p>
+<p>步骤：</p>
+<ol>
+<li><p><strong>特征提取</strong>（SIFT, SURF, FAST等一堆方法）</p>
+</li>
+<li><p><strong>配准</strong>（主流是RANSAC和它的改进版</p>
+</li>
+<li><p><strong>全局优化</strong>bundle adjustment  用来估计相机参数</p>
+</li>
+<li><p><strong>数据融合</strong></p>
+</li>
+</ol>
+<p>3D点云应用深度学习面临的挑战。首先在神经网络上面临的挑战：</p>
+<ol>
+<li>非结构化数据（无网格）：点云是分布在空间中的XYZ点。 没有结构化的网格来帮助CNN滤波器。</li>
+<li>不变性排列：点云本质上是一长串点（nx3矩阵，其中n是点数）。 在几何上，点的顺序不影响它在底层矩阵结构中的表示方式，不同的点排一个顺序还是同一个点云，例如， 相同的点云可以由两个完全不同的矩阵表示。</li>
+<li>点云数量上的变化：在图像中，像素的数量是一个给定的常数，取决于相机。 然而，点云的数量可能会有很大的变化，这取决于各种传感器。</li>
+</ol>
+<p>在点云数据方面的挑战：</p>
+<ol>
+<li>缺少数据：扫描的模型通常被遮挡，部分数据丢失。</li>
+<li>噪音：所有传感器都是嘈杂的。 有几种类型的噪声，包括点云扰动和异常值。 这意味着一个点有一定的概率位于它被采样的地方（扰动）附近的某一半径范围内，或者它可能出现在空间的任意位置（异常值）。</li>
+<li>旋转：一辆车向左转，同一辆车向右转，会有不同的点云代表同一辆车。</li>
+</ol>
+
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '三维点云介绍'
+    }
+</script>
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            AliceMerser
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    <aside id="sidebar-hot_posts">
+    <div class="panel panel-gal hot hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-fire"></i>
+            最热文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/12/09/typora%E4%B8%8B%E7%BC%96%E5%86%99Markdown%E6%96%87%E4%BB%B6/">Typora使用笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/12/09/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/10/04/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/">图像分割</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/26/%E5%9F%9F%E5%90%8D%E5%A4%87%E6%A1%88/">域名备案</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/14/%E6%B7%B1%E5%BA%A6%E7%9B%B8%E6%9C%BA/">深度相机</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/03/OpenMVG-PMVS%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/">OpenMVG+PMVS三维重建入门使用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/ResNet/">ResNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/GoogLeNet/">GoogLeNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C%E4%B8%8E%E5%BC%95%E6%93%8E/">游戏制作与引擎</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/24/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%AE%80%E4%BB%8B/">三维重建简介</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/03/OpenMVG-PMVS%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/">OpenMVG+PMVS三维重建入门使用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/GoogLeNet/">GoogLeNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/ResNet/">ResNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/02/VGGNet/">VGGNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/03/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-Typora/">markdown基本语法-Typora</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/24/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%AE%80%E4%BB%8B/">三维重建简介</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/04/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E7%AB%A0/">机器学习第一章</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/14/%E6%B7%B1%E5%BA%A6%E7%9B%B8%E6%9C%BA/">深度相机</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/04/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E7%AB%A0/">机器学习第二章</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C%E4%B8%8E%E5%BC%95%E6%93%8E/">游戏制作与引擎</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2021/08/16/%E4%B8%89%E7%BB%B4%E7%82%B9%E4%BA%91%E4%BB%8B%E7%BB%8D/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2021/08/16/%E4%B8%89%E7%BB%B4%E7%82%B9%E4%BA%91%E4%BB%8B%E7%BB%8D/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2021/08/16/%E4%B8%89%E7%BB%B4%E7%82%B9%E4%BA%91%E4%BB%8B%E7%BB%8D/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" style="font-size: 11.011318663509348px;" class="tag-cloud-link">神经网络模型</a>
+    
+    <a href="/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/" style="font-size: 9.567752884769847px;" class="tag-cloud-link">三维重建</a>
+    
+    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 8.411501520504121px;" class="tag-cloud-link">神经网络</a>
+    
+    <a href="/tags/Spring/" style="font-size: 9.83012493745583px;" class="tag-cloud-link">Spring</a>
+    
+    <a href="/tags/Gitalk/" style="font-size: 10.513384489309123px;" class="tag-cloud-link">Gitalk</a>
+    
+    <a href="/tags/%E4%B8%89%E7%BB%B4%E7%82%B9%E4%BA%91/" style="font-size: 16.036125268688757px;" class="tag-cloud-link">三维点云</a>
+    
+    <a href="/tags/hexo/" style="font-size: 19.017018977340594px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/" style="font-size: 19.039275176329348px;" class="tag-cloud-link">图像分割</a>
+    
+    <a href="/tags/%E5%A4%87%E6%A1%88/" style="font-size: 18.14661337960721px;" class="tag-cloud-link">备案</a>
+    
+    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 8.832339001148462px;" class="tag-cloud-link">数据结构</a>
+    
+    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 13.559053058504928px;" class="tag-cloud-link">机器学习</a>
+    
+    <a href="/tags/%E6%B7%B1%E5%BA%A6%E7%9B%B8%E6%9C%BA/" style="font-size: 12.433178270818214px;" class="tag-cloud-link">深度相机</a>
+    
+    <a href="/tags/RGB-D/" style="font-size: 19.55330973018135px;" class="tag-cloud-link">RGB-D</a>
+    
+    <a href="/tags/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C/" style="font-size: 10.394724287035276px;" class="tag-cloud-link">游戏制作</a>
+    
+    <a href="/tags/%E5%BC%95%E6%93%8E/" style="font-size: 19.770440450612025px;" class="tag-cloud-link">引擎</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/zhangwei19980131" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://space.bilibili.com/284084563" target="_blank">bilibili</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 AliceMerser Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+<script>
+    window.hot_posts_count = '10'
+    // window.use_leancloud = 'true'
+</script>
+
+<script src="/js/comment/leancloud.js"></script>
+
+
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Mon Aug 16 2021 19:23:49 GMT+0800'
+      window.commentConfig.owner = ''
+      window.commentConfig.repo = ''
+      window.commentConfig.client_id = ''
+      window.commentConfig.client_secret = ''
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Mon Aug 16 2021 19:23:49 GMT+0800',
+        owner: '',
+        repo: '',
+        client_id: '',
+        client_secret: '',
+        redirect_uri: ''
+      }
+    }
+</script>
+
+<script src="/js/comment/gitment.js"></script>
+
+
+</html>

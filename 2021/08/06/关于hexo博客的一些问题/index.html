@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="AliceMerser">
+    
+    
+    
+    
+    
+    
+    <title>关于hexo博客的一些问题 | 夜忆香</title>
+    <link href="http://example.com" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+    <script>
+      AV.init({
+        appId: 'f5IN9CgqVuuyU4VvWx6JeIHr-gzGzoHsz',
+        appKey: 'YkqMByAI8NsEcN6CuIpgMQxh'
+      })
+    </script>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="夜忆香" type="application/atom+xml">
+</head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://example.com">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">夜忆香</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/JAVA/">JAVA</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/Markdown/">Markdown</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/">神经网络模型</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/">三维重建</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://example.com">夜忆香</a>
+        >
+        <span>关于hexo博客的一些问题</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2021/08/06/%E5%85%B3%E4%BA%8Ehexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">关于hexo博客的一些问题</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/hexo/">hexo</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2021-08-06
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2021/08/06/%E5%85%B3%E4%BA%8Ehexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">关于hexo博客的一些问题</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2021-08-06
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/hexo/">hexo</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h1 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h1><p>近些天折腾了许久Hexo博客，包括主题，升级插件，添加评论功能，文章热度统计等记录一下.</p>
+<h2 id="升级hexo"><a href="#升级hexo" class="headerlink" title="升级hexo"></a>升级hexo</h2><p>这是我现在hexo的版本5.4.0，之前是4.2.0，由于只使用npm -update 并不能更新到5.0.0之后的版本（不知道为什么）</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fu78M9"><img src="https://z3.ax1x.com/2021/08/07/fu78M9.png" alt="fu78M9.png"></a></p>
+<p>升级办法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//以下命令分别执行即可</span><br><span class="line">npm install -g npm-check     //安装npm-check</span><br><span class="line">npm-check                    //查看系统插件是否需要升级</span><br><span class="line">npm install -g npm-upgrade   //安装npm-upgrade</span><br><span class="line">npm-upgrade        //更新package.json</span><br><span class="line">//在执行npm-upgrade命令后会要求输入yes或者no，直接输入Yes或Y即可</span><br><span class="line">npm update -g      //更新全局插件</span><br><span class="line">npm update --save  //更新系统插件</span><br></pre></td></tr></table></figure>
+
+<p>Node.js的版本也不能太低，应该</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">v12.8.2</span><br></pre></td></tr></table></figure>
+
+<p>最后<code> hexo -v</code>查看版本</p>
+<p>因为hexo5.0.0以上有<strong>代码高亮</strong></p>
+<h2 id="hexo-d"><a href="#hexo-d" class="headerlink" title="hexo d"></a>hexo d</h2><p>由于网络等原因，莫名其妙会无法部署上去出现<code>fatal: unable to access ‘https://github.com/...‘</code></p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><ol>
+<li><p>只能尝试，有时重新clean g  d 会解决</p>
+<p>hexo clean  </p>
+<p>hexo g</p>
+<p>hexo d</p>
+</li>
+<li><p>百度的一些命令（）</p>
+<p>在开启shadowsocks的前提下，手动配置git的代理</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">git config --global https.proxy http://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+
+<p>取消代理：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line"></span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure></li>
+<li><p>玄学解决，试几次就成功了</p>
+</li>
+<li><p>ipconfig /flushdns</p>
+</li>
+</ol>
+<h2 id="评论系统"><a href="#评论系统" class="headerlink" title="评论系统"></a>评论系统</h2><p>这里着实费了一些时间，由于gal上gitment和gitalk无法使用，于是换了主题改用Valine，具体配置不写了百度很多，遇到了一个小问题</p>
+<h3 id="Code-403-访问被api域名白名单拒绝，请检查你的安全域名设置-·Issue-72-·-xCss-Valine"><a href="#Code-403-访问被api域名白名单拒绝，请检查你的安全域名设置-·Issue-72-·-xCss-Valine" class="headerlink" title="[Code 403: 访问被api域名白名单拒绝，请检查你的安全域名设置. ·Issue #72 · xCss/Valine]"></a>[Code 403: 访问被api域名白名单拒绝，请检查你的安全域名设置. ·Issue #72 · xCss/Valine]</h3><p>问题解决在github上，Valine里的issue里  <a target="_blank" rel="noopener" href="https://github.com/xCss/Valine/issues/72">https://github.com/xCss/Valine/issues/72</a></p>
+<p>这里说下我的，在web安全域名上我填写了两个地址：<strong>http与https</strong>，只填写https还是会出现Code 403问题，不知道是不是http的原因。</p>
+<p>由于舍弃了上一个主题，这个主题的live-2d看板娘与Valine评论里的提交重叠，只能舍弃看板娘:cry:</p>
+<h3 id="评论头像问题"><a href="#评论头像问题" class="headerlink" title="评论头像问题"></a>评论头像问题</h3><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fNfkuT"><img src="https://z3.ax1x.com/2021/08/11/fNfkuT.png" alt="fNfkuT.png"></a></p>
+<p>Gravatar官网上注册账号，上传头像，并在评论写上注册的邮箱号即可显示，<strong>缺点是需要翻墙</strong>，页面显示头像和登录Gravatar注册都需要:cry:</p>
+<h2 id="更新hexo完图片读取不出来"><a href="#更新hexo完图片读取不出来" class="headerlink" title="更新hexo完图片读取不出来"></a>更新hexo完图片读取不出来</h2><p>又是一个坑</p>
+<p>由于更新了主题与hexo，插件的功能似乎不能用了，使用了图床的方式粘贴url地址来显示hexo d的图片，不重新搭博客了。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41010198/article/details/119698015">https://blog.csdn.net/weixin_41010198/article/details/119698015</a></p>
+<h2 id="hexo-tag-aplayer"><a href="#hexo-tag-aplayer" class="headerlink" title="hexo-tag-aplayer"></a>hexo-tag-aplayer</h2><p>设置</p>
+<hr>
+<p>暂时写到这，以后会继续更新</p>
+
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = '关于hexo博客的一些问题'
+    }
+</script>
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            AliceMerser
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    <aside id="sidebar-hot_posts">
+    <div class="panel panel-gal hot hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-fire"></i>
+            最热文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/12/09/typora%E4%B8%8B%E7%BC%96%E5%86%99Markdown%E6%96%87%E4%BB%B6/">Typora使用笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/12/09/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/10/04/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/">图像分割</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/26/%E5%9F%9F%E5%90%8D%E5%A4%87%E6%A1%88/">域名备案</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/14/%E6%B7%B1%E5%BA%A6%E7%9B%B8%E6%9C%BA/">深度相机</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/03/OpenMVG-PMVS%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/">OpenMVG+PMVS三维重建入门使用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/ResNet/">ResNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/GoogLeNet/">GoogLeNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C%E4%B8%8E%E5%BC%95%E6%93%8E/">游戏制作与引擎</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/24/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%AE%80%E4%BB%8B/">三维重建简介</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/03/OpenMVG-PMVS%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/">OpenMVG+PMVS三维重建入门使用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/GoogLeNet/">GoogLeNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/03/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-Typora/">markdown基本语法-Typora</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/12/09/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/12/09/typora%E4%B8%8B%E7%BC%96%E5%86%99Markdown%E6%96%87%E4%BB%B6/">Typora使用笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/10/04/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%AC%94%E8%AE%B0/">数据挖掘笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/26/%E5%9F%9F%E5%90%8D%E5%A4%87%E6%A1%88/">域名备案</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/10/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E7%AC%94%E8%AE%B0%EF%BC%88%E5%BC%80%E5%A4%B4%E9%83%A8%E5%88%86%EF%BC%89/">数据结构笔记（开头部分）</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/14/%E6%B7%B1%E5%BA%A6%E7%9B%B8%E6%9C%BA/">深度相机</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C%E4%B8%8E%E5%BC%95%E6%93%8E/">游戏制作与引擎</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2021/08/06/%E5%85%B3%E4%BA%8Ehexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2021/08/06/%E5%85%B3%E4%BA%8Ehexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2021/08/06/%E5%85%B3%E4%BA%8Ehexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" style="font-size: 16.75113383141763px;" class="tag-cloud-link">神经网络模型</a>
+    
+    <a href="/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/" style="font-size: 14.425770833062717px;" class="tag-cloud-link">三维重建</a>
+    
+    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.594323868112738px;" class="tag-cloud-link">神经网络</a>
+    
+    <a href="/tags/Spring/" style="font-size: 17.570197635742506px;" class="tag-cloud-link">Spring</a>
+    
+    <a href="/tags/Gitalk/" style="font-size: 16.576667613340042px;" class="tag-cloud-link">Gitalk</a>
+    
+    <a href="/tags/%E4%B8%89%E7%BB%B4%E7%82%B9%E4%BA%91/" style="font-size: 9.74167400576438px;" class="tag-cloud-link">三维点云</a>
+    
+    <a href="/tags/hexo/" style="font-size: 17.490634465534256px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/" style="font-size: 15.895416657899126px;" class="tag-cloud-link">图像分割</a>
+    
+    <a href="/tags/%E5%A4%87%E6%A1%88/" style="font-size: 17.65303948500351px;" class="tag-cloud-link">备案</a>
+    
+    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 13.175051278829459px;" class="tag-cloud-link">数据结构</a>
+    
+    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 11.679425615601186px;" class="tag-cloud-link">机器学习</a>
+    
+    <a href="/tags/%E6%B7%B1%E5%BA%A6%E7%9B%B8%E6%9C%BA/" style="font-size: 15.396999943070057px;" class="tag-cloud-link">深度相机</a>
+    
+    <a href="/tags/RGB-D/" style="font-size: 18.87348251938691px;" class="tag-cloud-link">RGB-D</a>
+    
+    <a href="/tags/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C/" style="font-size: 10.846450722855028px;" class="tag-cloud-link">游戏制作</a>
+    
+    <a href="/tags/%E5%BC%95%E6%93%8E/" style="font-size: 16.072823238358662px;" class="tag-cloud-link">引擎</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/zhangwei19980131" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://space.bilibili.com/284084563" target="_blank">bilibili</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 AliceMerser Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+<script>
+    window.hot_posts_count = '10'
+    // window.use_leancloud = 'true'
+</script>
+
+<script src="/js/comment/leancloud.js"></script>
+
+
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Fri Aug 06 2021 18:17:13 GMT+0800'
+      window.commentConfig.owner = ''
+      window.commentConfig.repo = ''
+      window.commentConfig.client_id = ''
+      window.commentConfig.client_secret = ''
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Fri Aug 06 2021 18:17:13 GMT+0800',
+        owner: '',
+        repo: '',
+        client_id: '',
+        client_secret: '',
+        redirect_uri: ''
+      }
+    }
+</script>
+
+<script src="/js/comment/gitment.js"></script>
+
+
+</html>

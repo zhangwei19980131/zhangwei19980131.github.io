@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="AliceMerser">
+    
+    
+    
+    
+    
+    
+    <title>AlexNet代码复现 | 夜忆香</title>
+    <link href="http://example.com" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+    <script>
+      AV.init({
+        appId: 'f5IN9CgqVuuyU4VvWx6JeIHr-gzGzoHsz',
+        appKey: 'YkqMByAI8NsEcN6CuIpgMQxh'
+      })
+    </script>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="夜忆香" type="application/atom+xml">
+</head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://example.com">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">夜忆香</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/JAVA/">JAVA</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/Markdown/">Markdown</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/">神经网络模型</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/">三维重建</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://example.com">夜忆香</a>
+        >
+        <span>AlexNet代码复现</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2021/08/05/AlexNet%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%8E%B0/">AlexNet代码复现</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/">神经网络模型</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2021-08-05
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2021/08/05/AlexNet%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%8E%B0/">AlexNet代码复现</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2021-08-05
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/">神经网络模型</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h1 id="AlexNet实现代码部分"><a href="#AlexNet实现代码部分" class="headerlink" title="AlexNet实现代码部分"></a>AlexNet实现代码部分</h1><p>[TOC]</p>
+<p>hexo博客不支持目录toc、csdn支持</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>python == 3.6</p>
+<p>torch-gpu == 1.2.0</p>
+<p>torchvision == 0.4.0</p>
+<p>numpy == 1.19.5</p>
+<p>matplotlib == 3.3.4</p>
+<h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>pycharm</p>
+<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>代码文件有3个，</p>
+<ol>
+<li>alexnet_inference.py 在预训练好的AlexNet模型里，给定图片，进行TOP5判断，输出5个可能的分类</li>
+<li>alexnet_visualizaton.py 卷积核与特征图的可视化，使用tensorboard</li>
+<li>train_alexnet.py 在kaggle上下载猫狗数据集训练一个AlexNet</li>
+</ol>
+<h2 id="alexnet-inference-py"><a href="#alexnet-inference-py" class="headerlink" title="alexnet_inference.py"></a>alexnet_inference.py</h2><h3 id="路径结构"><a href="#路径结构" class="headerlink" title="路径结构"></a>路径结构</h3><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHamn"><img src="https://z3.ax1x.com/2021/08/07/fuHamn.png" alt="fuHamn.png"></a></p>
+<h3 id="导入环境"><a href="#导入环境" class="headerlink" title="导入环境"></a>导入环境</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.environ[<span class="string">&#x27;NLS_LANG&#x27;</span>] = <span class="string">&#x27;SIMPLIFIED CHINESE_CHINA.UTF8&#x27;</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torchvision.transforms <span class="keyword">as</span> transforms</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> torchvision.models <span class="keyword">as</span> models</span><br><span class="line">BASE_DIR = os.path.dirname(os.path.abspath(__file__))</span><br><span class="line">device = torch.device(<span class="string">&quot;cuda&quot;</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">&quot;cpu&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>导包。</p>
+<p>最后一行device，如果cuda可用，使用GPU，如果不可用使用CPU。GPU：device:0 </p>
+<h3 id="主函数"><a href="#主函数" class="headerlink" title="主函数"></a>主函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line"></span><br><span class="line">    <span class="comment"># config</span></span><br><span class="line">    path_state_dict = os.path.join(BASE_DIR, <span class="string">&quot;..&quot;</span>, <span class="string">&quot;data&quot;</span>, <span class="string">&quot;alexnet-owt-4df8aa71.pth&quot;</span>)</span><br><span class="line">    path_img = os.path.join(BASE_DIR, <span class="string">&quot;..&quot;</span>, <span class="string">&quot;data&quot;</span>, <span class="string">&quot;Golden Retriever from baidu.jpg&quot;</span>)</span><br><span class="line">    <span class="comment"># path_img = os.path.join(BASE_DIR, &quot;..&quot;, &quot;data&quot;, &quot;tiger cat.jpg&quot;)</span></span><br><span class="line">    path_classnames = os.path.join(BASE_DIR, <span class="string">&quot;..&quot;</span>, <span class="string">&quot;data&quot;</span>, <span class="string">&quot;imagenet1000.json&quot;</span>)</span><br><span class="line">    path_classnames_cn = os.path.join(BASE_DIR, <span class="string">&quot;..&quot;</span>, <span class="string">&quot;data&quot;</span>, <span class="string">&quot;imagenet_classnames.txt&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># load class names</span></span><br><span class="line">    cls_n, cls_n_cn = load_class_names(path_classnames, path_classnames_cn)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 1/5 load img</span></span><br><span class="line">    img_tensor, img_rgb = process_img(path_img)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2/5 load model</span></span><br><span class="line">    alexnet_model = get_model(path_state_dict, <span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3/5 inference  tensor --&gt; vector</span></span><br><span class="line">    <span class="keyword">with</span> torch.no_grad():</span><br><span class="line">        time_tic = time.time()</span><br><span class="line">        outputs = alexnet_model(img_tensor)</span><br><span class="line">        time_toc = time.time()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4/5 index to class names</span></span><br><span class="line">    _, pred_int = torch.<span class="built_in">max</span>(outputs.data, <span class="number">1</span>)</span><br><span class="line">    _, top5_idx = torch.topk(outputs.data, <span class="number">5</span>, dim=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    pred_idx = <span class="built_in">int</span>(pred_int.cpu().numpy())</span><br><span class="line">    pred_str, pred_cn = cls_n[pred_idx], cls_n_cn[pred_idx]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;img: &#123;&#125; is: &#123;&#125;\n&#123;&#125;&quot;</span>.<span class="built_in">format</span>(os.path.basename(path_img), pred_str, pred_cn))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;time consuming:&#123;:.2f&#125;s&quot;</span>.<span class="built_in">format</span>(time_toc - time_tic))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 5/5 visualization</span></span><br><span class="line">    plt.imshow(img_rgb)</span><br><span class="line">    plt.title(<span class="string">&quot;predict:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(pred_str))</span><br><span class="line">    top5_num = top5_idx.cpu().numpy().squeeze()</span><br><span class="line">    text_str = [cls_n[t] <span class="keyword">for</span> t <span class="keyword">in</span> top5_num]</span><br><span class="line">    <span class="keyword">for</span> idx <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(top5_num)):</span><br><span class="line">        plt.text(<span class="number">5</span>, <span class="number">15</span>+idx*<span class="number">30</span>, <span class="string">&quot;top &#123;&#125;:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(idx+<span class="number">1</span>, text_str[idx]), bbox=<span class="built_in">dict</span>(fc=<span class="string">&#x27;yellow&#x27;</span>))</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+
+<p>alexnet网络模型需提前下载好，然后加载路径到path_state_dict，同时加载好path_img，需要测试的图片，下面是注释掉另一张测试图片。</p>
+<p>path_classnames和path_classnames_cn对应我们想要输出图片的1000个类别，一个是json文件，英文版。_cn是中文版，txt文件</p>
+<p>然后加载  load class names </p>
+<p>load img </p>
+<p>load model tensor –&gt; vector</p>
+<p>……</p>
+<h3 id="其他函数"><a href="#其他函数" class="headerlink" title="其他函数"></a>其他函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">img_transform</span>(<span class="params">img_rgb, transform=<span class="literal">None</span></span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    将数据转换为模型读取的形式</span></span><br><span class="line"><span class="string">    :param img_rgb: PIL Image</span></span><br><span class="line"><span class="string">    :param transform: torchvision.transform</span></span><br><span class="line"><span class="string">    :return: tensor</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> transform <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&quot;找不到transform！必须有transform对img进行处理&quot;</span>)</span><br><span class="line"></span><br><span class="line">    img_t = transform(img_rgb)</span><br><span class="line">    <span class="keyword">return</span> img_t</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_class_names</span>(<span class="params">p_clsnames, p_clsnames_cn</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    加载标签名</span></span><br><span class="line"><span class="string">    :param p_clsnames:</span></span><br><span class="line"><span class="string">    :param p_clsnames_cn:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(p_clsnames, <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        class_names = json.load(f)</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(p_clsnames_cn, encoding=<span class="string">&#x27;UTF-8&#x27;</span>) <span class="keyword">as</span> f:  <span class="comment"># 设置文件对象</span></span><br><span class="line">        class_names_cn = f.readlines()</span><br><span class="line">    <span class="keyword">return</span> class_names, class_names_cn</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_model</span>(<span class="params">path_state_dict, vis_model=<span class="literal">False</span></span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    创建模型，加载参数</span></span><br><span class="line"><span class="string">    :param path_state_dict:</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    model = models.alexnet()</span><br><span class="line">    pretrained_state_dict = torch.load(path_state_dict)</span><br><span class="line">    model.load_state_dict(pretrained_state_dict)</span><br><span class="line">    model.<span class="built_in">eval</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> vis_model:</span><br><span class="line">        <span class="keyword">from</span> torchsummary <span class="keyword">import</span> summary</span><br><span class="line">        summary(model, input_size=(<span class="number">3</span>, <span class="number">224</span>, <span class="number">224</span>), device=<span class="string">&quot;cpu&quot;</span>)</span><br><span class="line"></span><br><span class="line">    model.to(device)</span><br><span class="line">    <span class="keyword">return</span> model</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">process_img</span>(<span class="params">path_img</span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># hard code</span></span><br><span class="line">    norm_mean = [<span class="number">0.485</span>, <span class="number">0.456</span>, <span class="number">0.406</span>]</span><br><span class="line">    norm_std = [<span class="number">0.229</span>, <span class="number">0.224</span>, <span class="number">0.225</span>]</span><br><span class="line">    inference_transform = transforms.Compose([</span><br><span class="line">        transforms.Resize(<span class="number">256</span>),</span><br><span class="line">        transforms.CenterCrop((<span class="number">224</span>, <span class="number">224</span>)),</span><br><span class="line">        transforms.ToTensor(),</span><br><span class="line">        transforms.Normalize(norm_mean, norm_std),</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># path --&gt; img</span></span><br><span class="line">    img_rgb = Image.<span class="built_in">open</span>(path_img).convert(<span class="string">&#x27;RGB&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># img --&gt; tensor</span></span><br><span class="line">    img_tensor = img_transform(img_rgb, inference_transform)</span><br><span class="line">    img_tensor.unsqueeze_(<span class="number">0</span>)        <span class="comment"># chw --&gt; bchw</span></span><br><span class="line">    img_tensor = img_tensor.to(device)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> img_tensor, img_rgb</span><br></pre></td></tr></table></figure>
+<h3 id="输出结果"><a href="#输出结果" class="headerlink" title="输出结果"></a>输出结果</h3><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHBkV"><img src="https://z3.ax1x.com/2021/08/07/fuHBkV.png" alt="fuHBkV.png"></a></p>
+<h2 id="alexnet-visualizaton-py"><a href="#alexnet-visualizaton-py" class="headerlink" title="alexnet_visualizaton.py"></a>alexnet_visualizaton.py</h2><p>导包：略</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> torchvision.transforms <span class="keyword">as</span> transforms</span><br><span class="line"><span class="keyword">from</span> torch.utils.tensorboard <span class="keyword">import</span> SummaryWriter</span><br><span class="line"><span class="keyword">import</span> torchvision.utils <span class="keyword">as</span> vutils</span><br><span class="line"><span class="keyword">import</span> torchvision.models <span class="keyword">as</span> models</span><br><span class="line">BASE_DIR = os.path.dirname(os.path.abspath(__file__))</span><br><span class="line">device = torch.device(<span class="string">&quot;cuda&quot;</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">&quot;cpu&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="主函数-1"><a href="#主函数-1" class="headerlink" title="主函数"></a>主函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line"></span><br><span class="line">    log_dir = os.path.join(BASE_DIR, <span class="string">&quot;..&quot;</span>, <span class="string">&quot;results&quot;</span>)</span><br><span class="line">    <span class="comment"># ----------------------------------- kernel visualization -----------------------------------</span></span><br><span class="line">    writer = SummaryWriter(log_dir=log_dir, filename_suffix=<span class="string">&quot;_kernel&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># m1</span></span><br><span class="line">    <span class="comment"># alexnet = models.alexnet(pretrained=True)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># m2</span></span><br><span class="line">    path_state_dict = os.path.join(BASE_DIR, <span class="string">&quot;..&quot;</span>, <span class="string">&quot;data&quot;</span>, <span class="string">&quot;alexnet-owt-4df8aa71.pth&quot;</span>)</span><br><span class="line">    alexnet = models.alexnet()</span><br><span class="line">    pretrained_state_dict = torch.load(path_state_dict)</span><br><span class="line">    alexnet.load_state_dict(pretrained_state_dict)</span><br><span class="line"></span><br><span class="line">    kernel_num = -<span class="number">1</span></span><br><span class="line">    vis_max = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> sub_module <span class="keyword">in</span> alexnet.modules():</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(sub_module, nn.Conv2d):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        kernel_num += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> kernel_num &gt; vis_max:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">        kernels = sub_module.weight</span><br><span class="line">        c_out, c_int, k_h, k_w = <span class="built_in">tuple</span>(kernels.shape)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 拆分channel</span></span><br><span class="line">        <span class="keyword">for</span> o_idx <span class="keyword">in</span> <span class="built_in">range</span>(c_out):</span><br><span class="line">            kernel_idx = kernels[o_idx, :, :, :].unsqueeze(<span class="number">1</span>)  <span class="comment"># 获得(3, h, w), 但是make_grid需要 BCHW，这里拓展C维度变为（3， 1， h, w）</span></span><br><span class="line">            kernel_grid = vutils.make_grid(kernel_idx, normalize=<span class="literal">True</span>, scale_each=<span class="literal">True</span>, nrow=c_int)</span><br><span class="line">            writer.add_image(<span class="string">&#x27;&#123;&#125;_Convlayer_split_in_channel&#x27;</span>.<span class="built_in">format</span>(kernel_num), kernel_grid, global_step=o_idx)</span><br><span class="line"></span><br><span class="line">        kernel_all = kernels.view(-<span class="number">1</span>, <span class="number">3</span>, k_h, k_w)  <span class="comment"># 3, h, w</span></span><br><span class="line">        kernel_grid = vutils.make_grid(kernel_all, normalize=<span class="literal">True</span>, scale_each=<span class="literal">True</span>, nrow=<span class="number">8</span>)  <span class="comment"># c, h, w</span></span><br><span class="line">        writer.add_image(<span class="string">&#x27;&#123;&#125;_all&#x27;</span>.<span class="built_in">format</span>(kernel_num), kernel_grid, global_step=<span class="number">620</span>)</span><br><span class="line"></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;&#123;&#125;_convlayer shape:&#123;&#125;&quot;</span>.<span class="built_in">format</span>(kernel_num, <span class="built_in">tuple</span>(kernels.shape)))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ----------------------------- feature map visualization ------------------------</span></span><br><span class="line">    writer = SummaryWriter(log_dir=log_dir, filename_suffix=<span class="string">&quot;_feature map&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 数据</span></span><br><span class="line">    path_img = os.path.join(BASE_DIR, <span class="string">&quot;..&quot;</span>, <span class="string">&quot;data&quot;</span>, <span class="string">&quot;tiger cat.jpg&quot;</span>)  <span class="comment"># your path to image</span></span><br><span class="line">    normMean = [<span class="number">0.49139968</span>, <span class="number">0.48215827</span>, <span class="number">0.44653124</span>]</span><br><span class="line">    normStd = [<span class="number">0.24703233</span>, <span class="number">0.24348505</span>, <span class="number">0.26158768</span>]</span><br><span class="line">    norm_transform = transforms.Normalize(normMean, normStd)</span><br><span class="line">    img_transforms = transforms.Compose([</span><br><span class="line">        transforms.Resize((<span class="number">224</span>, <span class="number">224</span>)),</span><br><span class="line">        transforms.ToTensor(),</span><br><span class="line">        norm_transform</span><br><span class="line">    ])</span><br><span class="line"></span><br><span class="line">    img_pil = Image.<span class="built_in">open</span>(path_img).convert(<span class="string">&#x27;RGB&#x27;</span>)</span><br><span class="line">    img_tensor = img_transforms(img_pil)</span><br><span class="line">    img_tensor.unsqueeze_(<span class="number">0</span>)  <span class="comment"># chw --&gt; bchw</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 模型</span></span><br><span class="line">    <span class="comment"># alexnet = models.alexnet(pretrained=True)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># forward</span></span><br><span class="line">    convlayer1 = alexnet.features[<span class="number">0</span>]</span><br><span class="line">    fmap_1 = convlayer1(img_tensor)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 预处理</span></span><br><span class="line">    fmap_1.transpose_(<span class="number">0</span>, <span class="number">1</span>)  <span class="comment"># bchw=(1, 64, 55, 55) --&gt; (64, 1, 55, 55)</span></span><br><span class="line">    fmap_1_grid = vutils.make_grid(fmap_1, normalize=<span class="literal">True</span>, scale_each=<span class="literal">True</span>, nrow=<span class="number">8</span>)</span><br><span class="line"></span><br><span class="line">    writer.add_image(<span class="string">&#x27;feature map in conv1&#x27;</span>, fmap_1_grid, global_step=<span class="number">620</span>)</span><br><span class="line">    writer.close()</span><br></pre></td></tr></table></figure>
+
+<h2 id="train-alexnet-py"><a href="#train-alexnet-py" class="headerlink" title="train_alexnet.py"></a>train_alexnet.py</h2><p>这一部分是关于训练一个AlexNet实现一个二分类问题</p>
+<h3 id="首先代码结构"><a href="#首先代码结构" class="headerlink" title="首先代码结构"></a>首先代码结构</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">构建DataLoader--&gt;构建模型</span><br><span class="line">构建模型--&gt;构建损失函数</span><br><span class="line">构建损失函数--&gt;构建优化器</span><br><span class="line">构建优化器--&gt;迭代训练</span><br></pre></td></tr></table></figure>
+
+<p>分为5个步骤。</p>
+<h3 id="关于train数据集"><a href="#关于train数据集" class="headerlink" title="关于train数据集"></a>关于train数据集</h3><p>25000张图片，猫狗各占一半，图片内容比较复杂，不仅仅只有猫和狗，有的图片有一些栅栏背景，有的图片有人，而且人的大小大于猫或狗大小。</p>
+<p>我们这里只需要train这个文件夹。</p>
+<p>导包</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> DataLoader</span><br><span class="line"><span class="keyword">import</span> torchvision.transforms <span class="keyword">as</span> transforms</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> torchvision.models <span class="keyword">as</span> models</span><br><span class="line"><span class="keyword">from</span> tools.my_dataset <span class="keyword">import</span> CatDogDataset</span><br><span class="line"></span><br><span class="line">BASE_DIR = os.path.dirname(os.path.abspath(__file__))</span><br><span class="line">device = torch.device(<span class="string">&quot;cuda&quot;</span> <span class="keyword">if</span> torch.cuda.is_available() <span class="keyword">else</span> <span class="string">&quot;cpu&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>最后一行代码意义和第一个.py含义一样，if available GPU else CPU</p>
+<h3 id="主函数-2"><a href="#主函数-2" class="headerlink" title="主函数"></a>主函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># config</span></span><br><span class="line">   data_dir = os.path.join(BASE_DIR, <span class="string">&quot;..&quot;</span>, <span class="string">&quot;data&quot;</span>, <span class="string">&quot;train&quot;</span>)</span><br><span class="line">   path_state_dict = os.path.join(BASE_DIR, <span class="string">&quot;..&quot;</span>, <span class="string">&quot;data&quot;</span>, <span class="string">&quot;alexnet-owt-4df8aa71.pth&quot;</span>)</span><br><span class="line">   num_classes = <span class="number">2</span></span><br><span class="line"></span><br><span class="line">   MAX_EPOCH = <span class="number">3</span>       <span class="comment"># 可自行修改</span></span><br><span class="line">   BATCH_SIZE = <span class="number">128</span>    <span class="comment"># 可自行修改</span></span><br><span class="line">   LR = <span class="number">0.001</span>          <span class="comment"># 可自行修改</span></span><br><span class="line">   log_interval = <span class="number">1</span>    <span class="comment"># 可自行修改</span></span><br><span class="line">   val_interval = <span class="number">1</span>    <span class="comment"># 可自行修改</span></span><br><span class="line">   classes = <span class="number">2</span></span><br><span class="line">   start_epoch = -<span class="number">1</span></span><br><span class="line">   lr_decay_step = <span class="number">1</span>   <span class="comment"># 可自行修改</span></span><br></pre></td></tr></table></figure>
+
+<p>主函数的config，超参数和路径可以自己设置</p>
+<p>然后是5个模块，和第一个python文件5步骤对应</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ============================ step 1/5 数据 ============================</span></span><br><span class="line">   norm_mean = [<span class="number">0.485</span>, <span class="number">0.456</span>, <span class="number">0.406</span>]</span><br><span class="line">   norm_std = [<span class="number">0.229</span>, <span class="number">0.224</span>, <span class="number">0.225</span>]</span><br><span class="line"></span><br><span class="line">   train_transform = transforms.Compose([</span><br><span class="line">       transforms.Resize((<span class="number">256</span>)),      <span class="comment"># (256, 256) 区别</span></span><br><span class="line">       transforms.CenterCrop(<span class="number">256</span>),</span><br><span class="line">       transforms.RandomCrop(<span class="number">224</span>),</span><br><span class="line">       transforms.RandomHorizontalFlip(p=<span class="number">0.5</span>),</span><br><span class="line">       transforms.ToTensor(),</span><br><span class="line">       transforms.Normalize(norm_mean, norm_std),</span><br><span class="line">   ])</span><br><span class="line"></span><br><span class="line">   normalizes = transforms.Normalize(norm_mean, norm_std)</span><br><span class="line">   valid_transform = transforms.Compose([</span><br><span class="line">       transforms.Resize((<span class="number">256</span>, <span class="number">256</span>)),</span><br><span class="line">       transforms.TenCrop(<span class="number">224</span>, vertical_flip=<span class="literal">False</span>),</span><br><span class="line">       transforms.Lambda(<span class="keyword">lambda</span> crops: torch.stack([normalizes(transforms.ToTensor()(crop)) <span class="keyword">for</span> crop <span class="keyword">in</span> crops])),</span><br><span class="line">   ])</span><br><span class="line"></span><br><span class="line">   <span class="comment"># 构建MyDataset实例</span></span><br><span class="line">   train_data = CatDogDataset(data_dir=data_dir, mode=<span class="string">&quot;train&quot;</span>, transform=train_transform)</span><br><span class="line">   valid_data = CatDogDataset(data_dir=data_dir, mode=<span class="string">&quot;valid&quot;</span>, transform=valid_transform)</span><br><span class="line"></span><br><span class="line">   <span class="comment"># 构建DataLoder</span></span><br><span class="line">   train_loader = DataLoader(dataset=train_data, batch_size=BATCH_SIZE, shuffle=<span class="literal">True</span>)</span><br><span class="line">   valid_loader = DataLoader(dataset=valid_data, batch_size=<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+
+<p>对数据模块进行设置</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ============================ step 2/5 模型 ==========================</span></span><br><span class="line">alexnet_model = get_model(path_state_dict, <span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">num_ftrs = alexnet_model.classifier._modules[<span class="string">&quot;6&quot;</span>].in_features</span><br><span class="line">alexnet_model.classifier._modules[<span class="string">&quot;6&quot;</span>] = nn.Linear(num_ftrs, num_classes)</span><br><span class="line"></span><br><span class="line">alexnet_model.to(device)</span><br><span class="line"><span class="comment"># ============================ step 3/5 损失函数 =======================</span></span><br><span class="line">criterion = nn.CrossEntropyLoss()</span><br><span class="line"><span class="comment"># ============================ step 4/5 优化器 =========================</span></span><br><span class="line"><span class="comment"># 冻结卷积层</span></span><br><span class="line">flag = <span class="number">0</span></span><br><span class="line"><span class="comment"># flag = 1</span></span><br><span class="line"><span class="keyword">if</span> flag:</span><br><span class="line">    fc_params_id = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">id</span>, alexnet_model.classifier.parameters()))  <span class="comment"># 返回的是parameters的 内存地址</span></span><br><span class="line">    base_params = <span class="built_in">filter</span>(<span class="keyword">lambda</span> p: <span class="built_in">id</span>(p) <span class="keyword">not</span> <span class="keyword">in</span> fc_params_id, alexnet_model.parameters())</span><br><span class="line">    optimizer = optim.SGD([</span><br><span class="line">        &#123;<span class="string">&#x27;params&#x27;</span>: base_params, <span class="string">&#x27;lr&#x27;</span>: LR * <span class="number">0.1</span>&#125;,  <span class="comment"># 0</span></span><br><span class="line">        &#123;<span class="string">&#x27;params&#x27;</span>: alexnet_model.classifier.parameters(), <span class="string">&#x27;lr&#x27;</span>: LR&#125;], momentum=<span class="number">0.9</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    optimizer = optim.SGD(alexnet_model.parameters(), lr=LR, momentum=<span class="number">0.9</span>)  <span class="comment"># 选择优化器</span></span><br><span class="line"></span><br><span class="line">scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=lr_decay_step, gamma=<span class="number">0.1</span>)  <span class="comment"># 设置学习率下降策略</span></span><br><span class="line"><span class="comment"># scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(patience=5)</span></span><br></pre></td></tr></table></figure>
+
+<p>对模型模块进行设置，加载模型，修改它的输出层，两个类的一个分类。</p>
+<p>设置损失函数和优化器</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"># ============================ step 5/5 训练 ============================</span><br><span class="line">    train_curve = list()</span><br><span class="line">    valid_curve = list()</span><br><span class="line"></span><br><span class="line">    for epoch in range(start_epoch + 1, MAX_EPOCH):</span><br><span class="line"></span><br><span class="line">        loss_mean = 0.</span><br><span class="line">        correct = 0.</span><br><span class="line">        total = 0.</span><br><span class="line"></span><br><span class="line">        alexnet_model.train()</span><br><span class="line">        for i, data in enumerate(train_loader):</span><br><span class="line"></span><br><span class="line">            # if i &gt; 1:</span><br><span class="line">            #     break</span><br><span class="line"></span><br><span class="line">            # forward</span><br><span class="line">            inputs, labels = data</span><br><span class="line">            inputs, labels = inputs.to(device), labels.to(device)</span><br><span class="line">            outputs = alexnet_model(inputs)</span><br><span class="line"></span><br><span class="line">            # backward</span><br><span class="line">            optimizer.zero_grad()</span><br><span class="line">            loss = criterion(outputs, labels)</span><br><span class="line">            loss.backward()</span><br><span class="line"></span><br><span class="line">            # update weights</span><br><span class="line">            optimizer.step()</span><br><span class="line"></span><br><span class="line">            # 统计分类情况</span><br><span class="line">            _, predicted = torch.max(outputs.data, 1)</span><br><span class="line">            total += labels.size(0)</span><br><span class="line">            correct += (predicted == labels).squeeze().cpu().sum().numpy()</span><br><span class="line"></span><br><span class="line">            # 打印训练信息</span><br><span class="line">            loss_mean += loss.item()</span><br><span class="line">            train_curve.append(loss.item())</span><br><span class="line">            if (i+1) % log_interval == 0:</span><br><span class="line">                loss_mean = loss_mean / log_interval</span><br><span class="line">                print(&quot;Training:Epoch[&#123;:0&gt;3&#125;/&#123;:0&gt;3&#125;] Iteration[&#123;:0&gt;3&#125;/&#123;:0&gt;3&#125;] Loss: &#123;:.4f&#125; Acc:&#123;:.2%&#125;&quot;.format(</span><br><span class="line">                    epoch, MAX_EPOCH, i+1, len(train_loader), loss_mean, correct / total))</span><br><span class="line">                loss_mean = 0.</span><br><span class="line"></span><br><span class="line">        scheduler.step()  # 更新学习率</span><br><span class="line"></span><br><span class="line">        # validate the model</span><br><span class="line">        if (epoch+1) % val_interval == 0:</span><br><span class="line"></span><br><span class="line">            correct_val = 0.</span><br><span class="line">            total_val = 0.</span><br><span class="line">            loss_val = 0.</span><br><span class="line">            alexnet_model.eval()</span><br><span class="line">            with torch.no_grad():</span><br><span class="line">                for j, data in enumerate(valid_loader):</span><br><span class="line">                    inputs, labels = data</span><br><span class="line">                    inputs, labels = inputs.to(device), labels.to(device)</span><br><span class="line"></span><br><span class="line">                    bs, ncrops, c, h, w = inputs.size()     # [4, 10, 3, 224, 224</span><br><span class="line">                    outputs = alexnet_model(inputs.view(-1, c, h, w))</span><br><span class="line">                    outputs_avg = outputs.view(bs, ncrops, -1).mean(1)</span><br><span class="line"></span><br><span class="line">                    loss = criterion(outputs_avg, labels)</span><br><span class="line"></span><br><span class="line">                    _, predicted = torch.max(outputs_avg.data, 1)</span><br><span class="line">                    total_val += labels.size(0)</span><br><span class="line">                    correct_val += (predicted == labels).squeeze().cpu().sum().numpy()</span><br><span class="line"></span><br><span class="line">                    loss_val += loss.item()</span><br><span class="line"></span><br><span class="line">                loss_val_mean = loss_val/len(valid_loader)</span><br><span class="line">                valid_curve.append(loss_val_mean)</span><br><span class="line">                print(&quot;Valid:\t Epoch[&#123;:0&gt;3&#125;/&#123;:0&gt;3&#125;] Iteration[&#123;:0&gt;3&#125;/&#123;:0&gt;3&#125;] Loss: &#123;:.4f&#125; Acc:&#123;:.2%&#125;&quot;.format(</span><br><span class="line">                    epoch, MAX_EPOCH, j+1, len(valid_loader), loss_val_mean, correct_val / total_val))</span><br><span class="line">            alexnet_model.train()</span><br><span class="line"></span><br><span class="line">    train_x = range(len(train_curve))</span><br><span class="line">    train_y = train_curve</span><br><span class="line"></span><br><span class="line">    train_iters = len(train_loader)</span><br><span class="line">    valid_x = np.arange(1, len(valid_curve)+1) * train_iters*val_interval # 由于valid中记录的是epochloss，需要对记录点进行转换到iterations</span><br><span class="line">    valid_y = valid_curve</span><br><span class="line"></span><br><span class="line">    plt.plot(train_x, train_y, label=&#x27;Train&#x27;)</span><br><span class="line">    plt.plot(valid_x, valid_y, label=&#x27;Valid&#x27;)</span><br><span class="line"></span><br><span class="line">    plt.legend(loc=&#x27;upper right&#x27;)</span><br><span class="line">    plt.ylabel(&#x27;loss value&#x27;)</span><br><span class="line">    plt.xlabel(&#x27;Iteration&#x27;)</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+
+<h3 id="训练结果"><a href="#训练结果" class="headerlink" title="训练结果"></a>训练结果</h3><p>只设置了3个epoch（0,1,2），差不多10分钟左右</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHwT0"><img src="https://z3.ax1x.com/2021/08/07/fuHwT0.png" alt="fuHwT0.png"></a></p>
+<p>训练验证曲线</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHdwq"><img src="https://z3.ax1x.com/2021/08/07/fuHdwq.png" alt="fuHdwq.png"></a></p>
+<p>完。</p>
+<h1 id="AlexNet应用于其他数据集"><a href="#AlexNet应用于其他数据集" class="headerlink" title="AlexNet应用于其他数据集"></a>AlexNet应用于其他数据集</h1><h2 id="花分类与蚂蚁蜜蜂的分类"><a href="#花分类与蚂蚁蜜蜂的分类" class="headerlink" title="花分类与蚂蚁蜜蜂的分类"></a>花分类与蚂蚁蜜蜂的分类</h2><p>windows下<code>nvidia-smi.exe -l 5</code>(每5秒更新一次gpu的信息，更新频率最高可设置为1s/次，ctrl+c停止更新)</p>
+<h3 id="花分类"><a href="#花分类" class="headerlink" title="花分类"></a>花分类</h3><p>训练结果</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fGcQVx"><img src="https://z3.ax1x.com/2021/08/10/fGcQVx.png" alt="fGcQVx.png"></a></p>
+<p>预测结果</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fGglOs"><img src="https://z3.ax1x.com/2021/08/10/fGglOs.png" alt="fGglOs.png"></a></p>
+<h3 id="蚂蚁与蜜蜂分类"><a href="#蚂蚁与蜜蜂分类" class="headerlink" title="蚂蚁与蜜蜂分类"></a>蚂蚁与蜜蜂分类</h3><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fG2PhT"><img src="https://z3.ax1x.com/2021/08/10/fG2PhT.png" alt="fG2PhT.png"></a></p>
+<p>预测结果</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fG2cbn"><img src="https://z3.ax1x.com/2021/08/10/fG2cbn.png" alt="fG2cbn.png"></a></p>
+
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = 'AlexNet代码复现'
+    }
+</script>
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            AliceMerser
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    <aside id="sidebar-hot_posts">
+    <div class="panel panel-gal hot hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-fire"></i>
+            最热文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/12/09/typora%E4%B8%8B%E7%BC%96%E5%86%99Markdown%E6%96%87%E4%BB%B6/">Typora使用笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/12/09/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/10/04/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/">图像分割</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/26/%E5%9F%9F%E5%90%8D%E5%A4%87%E6%A1%88/">域名备案</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/14/%E6%B7%B1%E5%BA%A6%E7%9B%B8%E6%9C%BA/">深度相机</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/03/OpenMVG-PMVS%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/">OpenMVG+PMVS三维重建入门使用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/ResNet/">ResNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/GoogLeNet/">GoogLeNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C%E4%B8%8E%E5%BC%95%E6%93%8E/">游戏制作与引擎</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/24/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%AE%80%E4%BB%8B/">三维重建简介</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/02/AlexNet/">AlexNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/03/OpenMVG-PMVS%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/">OpenMVG+PMVS三维重建入门使用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/GoogLeNet/">GoogLeNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/ResNet/">ResNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/02/VGGNet/">VGGNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/03/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-Typora/">markdown基本语法-Typora</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/06/%E5%85%B3%E4%BA%8Ehexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">关于hexo博客的一些问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/26/%E5%9F%9F%E5%90%8D%E5%A4%87%E6%A1%88/">域名备案</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/04/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%B8%80%E7%AB%A0/">机器学习第一章</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/04/05/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%AC%E4%BA%8C%E7%AB%A0/">机器学习第二章</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2021/08/05/AlexNet%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%8E%B0/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2021/08/05/AlexNet%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%8E%B0/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2021/08/05/AlexNet%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%8E%B0/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" style="font-size: 12.10728577319142px;" class="tag-cloud-link">神经网络模型</a>
+    
+    <a href="/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/" style="font-size: 19.333991783703837px;" class="tag-cloud-link">三维重建</a>
+    
+    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 14.756413287278672px;" class="tag-cloud-link">神经网络</a>
+    
+    <a href="/tags/Spring/" style="font-size: 9.215687945632904px;" class="tag-cloud-link">Spring</a>
+    
+    <a href="/tags/Gitalk/" style="font-size: 8.525803821064823px;" class="tag-cloud-link">Gitalk</a>
+    
+    <a href="/tags/%E4%B8%89%E7%BB%B4%E7%82%B9%E4%BA%91/" style="font-size: 12.3955115924511px;" class="tag-cloud-link">三维点云</a>
+    
+    <a href="/tags/hexo/" style="font-size: 14.102654692300973px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/" style="font-size: 15.511534928127679px;" class="tag-cloud-link">图像分割</a>
+    
+    <a href="/tags/%E5%A4%87%E6%A1%88/" style="font-size: 13.303400027636783px;" class="tag-cloud-link">备案</a>
+    
+    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 15.289145886605212px;" class="tag-cloud-link">数据结构</a>
+    
+    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 17.53440494334498px;" class="tag-cloud-link">机器学习</a>
+    
+    <a href="/tags/%E6%B7%B1%E5%BA%A6%E7%9B%B8%E6%9C%BA/" style="font-size: 11.856756225034067px;" class="tag-cloud-link">深度相机</a>
+    
+    <a href="/tags/RGB-D/" style="font-size: 18.71944259234404px;" class="tag-cloud-link">RGB-D</a>
+    
+    <a href="/tags/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C/" style="font-size: 12.953347500008025px;" class="tag-cloud-link">游戏制作</a>
+    
+    <a href="/tags/%E5%BC%95%E6%93%8E/" style="font-size: 17.063761184092293px;" class="tag-cloud-link">引擎</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/zhangwei19980131" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://space.bilibili.com/284084563" target="_blank">bilibili</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 AliceMerser Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+<script>
+    window.hot_posts_count = '10'
+    // window.use_leancloud = 'true'
+</script>
+
+<script src="/js/comment/leancloud.js"></script>
+
+
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Thu Aug 05 2021 11:37:41 GMT+0800'
+      window.commentConfig.owner = ''
+      window.commentConfig.repo = ''
+      window.commentConfig.client_id = ''
+      window.commentConfig.client_secret = ''
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Thu Aug 05 2021 11:37:41 GMT+0800',
+        owner: '',
+        repo: '',
+        client_id: '',
+        client_secret: '',
+        redirect_uri: ''
+      }
+    }
+</script>
+
+<script src="/js/comment/gitment.js"></script>
+
+
+</html>

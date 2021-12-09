@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="AliceMerser">
+    
+    
+    
+    
+    
+    
+    <title>OpenMVG+PMVS三维重建入门使用 | 夜忆香</title>
+    <link href="http://example.com" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+    <script>
+      AV.init({
+        appId: 'f5IN9CgqVuuyU4VvWx6JeIHr-gzGzoHsz',
+        appKey: 'YkqMByAI8NsEcN6CuIpgMQxh'
+      })
+    </script>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="夜忆香" type="application/atom+xml">
+</head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://example.com">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">夜忆香</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/JAVA/">JAVA</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/Markdown/">Markdown</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/">神经网络模型</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/">三维重建</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://example.com">夜忆香</a>
+        >
+        <span>OpenMVG+PMVS三维重建入门使用</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2021/09/03/OpenMVG-PMVS%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/">OpenMVG+PMVS三维重建入门使用</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/">三维重建</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2021-09-03
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2021/09/03/OpenMVG-PMVS%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/">OpenMVG+PMVS三维重建入门使用</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2021-09-03
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/">三维重建</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h1 id="OpenMVG-PMVS三维重建入门使用"><a href="#OpenMVG-PMVS三维重建入门使用" class="headerlink" title="OpenMVG+PMVS三维重建入门使用"></a>OpenMVG+PMVS三维重建入门使用</h1><h2 id="两大游戏引擎"><a href="#两大游戏引擎" class="headerlink" title="两大游戏引擎"></a>两大游戏引擎</h2><p><img src="https://pic.imgdb.cn/item/6131717844eaada73964480f.jpg"></p>
+<p>这个表格是关于两大引擎的对比关于他们的开发公司、总部地点、公司市值、开发语言和公司的属性。</p>
+<p>然后关于建模软件如Zbrush、3Dmax等等软件建模出的人物或动物模型如右图这种，在计算机显示的3d图形，它是Mesh的一种表现形式。</p>
+<p>第一个point cloud ，深度传感器扫描得到的深度数据，点云</p>
+<p>第三个Volumetric，将空间划分成三维网格，栅格化。</p>
+<p>第四个Multi-View，用多个角度的图片表示物体</p>
+<p>而第二个Mesh，三角面片在计算机图形学中渲染和建模非常有用。</p>
+<h2 id="使用OpenMVG和MVS三维重建"><a href="#使用OpenMVG和MVS三维重建" class="headerlink" title="使用OpenMVG和MVS三维重建"></a>使用OpenMVG和MVS三维重建</h2><p><img src="https://pic.imgdb.cn/item/613171b544eaada7396494cb.jpg"></p>
+<p>三维重建的流程之前也介绍过，所以这里简单提一下，我们需要从多视角的图像中提取特征，然后进行SFM和MVS。</p>
+<p><img src="https://pic.imgdb.cn/item/613171d744eaada73964be0b.jpg"></p>
+<p>我这里使用的是两个开源库，一个是openMVG、一个是PMVS。PMVS呢，是把sfm的一个输出作为输入，在进行一个密集重建。运行环境为ubuntu，windows安装过程较为繁琐，而且容易出现的问题也很多，可以在Windows下安装虚拟机装好ubuntu系统。</p>
+<p>openMVG和PMVS的安装可参考  <a target="_blank" rel="noopener" href="https://blog.yanjingang.com/?p=3329">https://blog.yanjingang.com/?p=3329</a></p>
+<p>出现的问题：</p>
+<p>由于网络问题可能会导致连接不上github，或者导致只安装一部分文件，如：openMVG/src/dependencies里面的cereal、glfw、osi_clp文件为空。</p>
+<p>解决方法：</p>
+<ol>
+<li>网好的时候重新clone</li>
+<li>直接去网站上把整个文件code下来，或者只code下dependencies</li>
+</ol>
+<p>后面安装过程，cmake版本需要注意一下（cmake -version）。中途有个长时间的百分之一到百分之百的等待，出现的提示错误不是进行不下去的可以不用管，到百分百结束。</p>
+<p>解锁方法：（无法获得锁问题/被占用….）</p>
+<p>sudo rm /var/lib/apt/lists/lock</p>
+<p>权限问题一半情况下加上sudo。</p>
+<p><img src="https://pic.imgdb.cn/item/613174da44eaada73968fbae.jpg"></p>
+<p>这是官方给出的测试集</p>
+<p><a target="_blank" rel="noopener" href="https://s31.aconvert.com/convert/p3r68-cdx67/qkg98-il4p9.gif">https://s31.aconvert.com/convert/p3r68-cdx67/qkg98-il4p9.gif</a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/hyplUU"><img src="https://z3.ax1x.com/2021/09/03/hyplUU.gif" alt="hyplUU.gif"></a></p>
+<p>进行SFM稀疏点云重建的结果</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/hy9VIO"><img src="https://z3.ax1x.com/2021/09/03/hy9VIO.gif" alt="hy9VIO.gif"></a></p>
+<p>进行MVS重建的结果</p>
+<p><img src="https://pic.imgdb.cn/item/61317b2844eaada73972b3fd.jpg"></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/hy9Wl9"><img src="https://z3.ax1x.com/2021/09/03/hy9Wl9.gif" alt="hy9Wl9.gif"></a></p>
+<p><img src="https://pic.imgdb.cn/item/61317c1d44eaada739744649.jpg"></p>
+<p><img src="https://pic.imgdb.cn/item/61317c3444eaada7397469d1.jpg"></p>
+<p>注意的问题：</p>
+<p>一个是格式问题，使用微信、qq从手机传到电脑会丢失图像信息，我的解决办法是在Ubuntu系统下安装百度网盘，通过手机把图片传输到网盘，然后再在ubuntu系统上下载下来，还有一个问题是iPhone12拍摄的图片默认格式是heic格式，这个苹果自iOS11以来，默认的图片格式，它体积更小、清晰度更高。如果我们在Windows系统下修改后缀名，如jpg，png是可以正常查看的，但是在ubuntu系统是读取不到图片的，必须得是拍摄的时候在手机设置里修改格式为jpg。</p>
+<p>第二个问题是相机参数问题，Sensor_width(传感器宽度)。在openMVG库的源文件里的senor_width这里面提供了很多不同种类的相机参数，但是iphone系列只添加到iphone型号XS这里，所以我们需要在下面添加上iphone12的参数值。</p>
+<p>具体过程：</p>
+<ol>
+<li>采集好图片后打包放入（car/images）里面</li>
+<li>在openMVG里面创建3dr_test.py文件</li>
+<li>修改文件所在的路径</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> subprocess</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="comment"># openmvg编译bin目录(可cp -p到/usr/local/bin/)</span></span><br><span class="line">OPENMVG_SFM_BIN = <span class="string">&quot;/home/work/tools/openMVG_Build/Linux-x86_64-RELEASE&quot;</span> </span><br><span class="line"><span class="comment"># 路径注意对好，虚拟机下这个文件通常home后面跟的是用户名，可以找到openMVG文件里的Linux- ... 复制路径过来</span></span><br><span class="line"><span class="comment"># pmvs编译bin目录(可cp -p到/usr/local/bin/)</span></span><br><span class="line">PMVS_BIN = <span class="string">&quot;/home/work/tools/CMVS-PMVS/build/main&quot;</span>  <span class="comment"># 路径问题同上</span></span><br><span class="line"><span class="comment"># openmvg相机参数目录</span></span><br><span class="line">CAMERA_SENSOR_WIDTH_DIRECTORY = <span class="string">&quot;/home/work/tools/openMVG/src/openMVG/exif/sensor_width_database&quot;</span></span><br><span class="line"><span class="comment"># 自己的相机参数如果文件里没有需要添加上去</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 0. 下载测试照片</span></span><br><span class="line">os.chdir(os.path.dirname(os.path.abspath(__file__)))</span><br><span class="line">data_dir = os.path.abspath(<span class="string">&quot;./car&quot;</span>) <span class="comment"># 这里修改路径,例如我的是car,修改为你自己数据集的文件夹名</span></span><br><span class="line"><span class="comment">#data_dir = os.path.abspath(&quot;./ImageDataset_SceauxCastle&quot;)</span></span><br><span class="line"><span class="comment"># 下面这一段是官方的测试代码，在github上下载的，测试官方用例网络不好可以直接去网站上面挂vpn下载放入对应路径</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;if not os.path.exists(data_dir):</span></span><br><span class="line"><span class="string">  pImageDataCheckout = subprocess.Popen([ &quot;git&quot;, &quot;clone&quot;, &quot;https://github.com/openMVG/ImageDataset_SceauxCastle.git&quot; ])</span></span><br><span class="line"><span class="string">  pImageDataCheckout.wait()&#x27;&#x27;&#x27;</span></span><br><span class="line">input_dir = os.path.join(data_dir, <span class="string">&quot;images&quot;</span>)</span><br><span class="line">output_dir = data_dir</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;Using input dir  : &quot;</span>, input_dir)</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;      output_dir : &quot;</span>, output_dir)</span><br><span class="line">matches_dir = os.path.join(output_dir, <span class="string">&quot;matches&quot;</span>)</span><br><span class="line">camera_file_params = os.path.join(CAMERA_SENSOR_WIDTH_DIRECTORY, <span class="string">&quot;sensor_width_camera_database.txt&quot;</span>)    <span class="comment">#相机参数</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(matches_dir):</span><br><span class="line">  os.mkdir(matches_dir)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 从图片数据集中生成场景描述文件sfm_data.json</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;----------1. Intrinsics analysis----------&quot;</span>)</span><br><span class="line">pIntrisics = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, <span class="string">&quot;openMVG_main_SfMInit_ImageListing&quot;</span>),  <span class="string">&quot;-i&quot;</span>, input_dir, <span class="string">&quot;-o&quot;</span>, matches_dir, <span class="string">&quot;-d&quot;</span>, camera_file_params, <span class="string">&quot;-c&quot;</span>, <span class="string">&quot;3&quot;</span>] )</span><br><span class="line"><span class="comment">#*注：如果产出的sfm_data.json里intrinsics内容为空，通常是在图片没有exif信息导致获取不到相机焦距、ccd尺寸等参数，用带exif的原图即可。</span></span><br><span class="line">pIntrisics.wait()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 计算图像特征</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;----------2. Compute features----------&quot;</span>)</span><br><span class="line">pFeatures = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, <span class="string">&quot;openMVG_main_ComputeFeatures&quot;</span>),  <span class="string">&quot;-i&quot;</span>, matches_dir+<span class="string">&quot;/sfm_data.json&quot;</span>, <span class="string">&quot;-o&quot;</span>, matches_dir, <span class="string">&quot;-m&quot;</span>, <span class="string">&quot;SIFT&quot;</span>, <span class="string">&quot;-f&quot;</span> , <span class="string">&quot;1&quot;</span>] )</span><br><span class="line">pFeatures.wait()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 计算几何匹配</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;----------3. Compute matches----------&quot;</span>)</span><br><span class="line">pMatches = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, <span class="string">&quot;openMVG_main_ComputeMatches&quot;</span>),  <span class="string">&quot;-i&quot;</span>, matches_dir+<span class="string">&quot;/sfm_data.json&quot;</span>, <span class="string">&quot;-o&quot;</span>, matches_dir, <span class="string">&quot;-f&quot;</span>, <span class="string">&quot;1&quot;</span>, <span class="string">&quot;-n&quot;</span>, <span class="string">&quot;ANNL2&quot;</span>] )</span><br><span class="line">pMatches.wait()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 执行增量三维重建</span></span><br><span class="line">reconstruction_dir = os.path.join(output_dir,<span class="string">&quot;reconstruction_sequential&quot;</span>)</span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;----------4. Do Incremental/Sequential reconstruction----------&quot;</span>) <span class="comment">#set manually the initial pair to avoid the prompt question</span></span><br><span class="line">pRecons = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, <span class="string">&quot;openMVG_main_IncrementalSfM&quot;</span>),  <span class="string">&quot;-i&quot;</span>, matches_dir+<span class="string">&quot;/sfm_data.json&quot;</span>, <span class="string">&quot;-m&quot;</span>, matches_dir, <span class="string">&quot;-o&quot;</span>, reconstruction_dir] )</span><br><span class="line">pRecons.wait()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 计算场景结构颜色</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;----------5. Colorize Structure----------&quot;</span>)</span><br><span class="line">pRecons = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, <span class="string">&quot;openMVG_main_ComputeSfM_DataColor&quot;</span>),  <span class="string">&quot;-i&quot;</span>, reconstruction_dir+<span class="string">&quot;/sfm_data.bin&quot;</span>, <span class="string">&quot;-o&quot;</span>, os.path.join(reconstruction_dir,<span class="string">&quot;colorized.ply&quot;</span>)] )</span><br><span class="line">pRecons.wait()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 6. 测量稳健三角</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;----------6. Structure from Known Poses (robust triangulation)----------&quot;</span>)</span><br><span class="line">pRecons = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, <span class="string">&quot;openMVG_main_ComputeStructureFromKnownPoses&quot;</span>),  <span class="string">&quot;-i&quot;</span>, reconstruction_dir+<span class="string">&quot;/sfm_data.bin&quot;</span>, <span class="string">&quot;-m&quot;</span>, matches_dir, <span class="string">&quot;-o&quot;</span>, os.path.join(reconstruction_dir,<span class="string">&quot;robust.ply&quot;</span>)] )</span><br><span class="line">pRecons.wait()</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string"># 使用全局SfM管道重建Reconstruction for the global SfM pipeline</span></span><br><span class="line"><span class="string"># 3.1 全局sfm管道几何匹配</span></span><br><span class="line"><span class="string">print (&quot;----------3.1. Compute matches (for the global SfM Pipeline)----------&quot;)</span></span><br><span class="line"><span class="string">pMatches = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, &quot;openMVG_main_ComputeMatches&quot;),  &quot;-i&quot;, matches_dir+&quot;/sfm_data.json&quot;, &quot;-o&quot;, matches_dir, &quot;-r&quot;, &quot;0.8&quot;, &quot;-g&quot;, &quot;e&quot;] )</span></span><br><span class="line"><span class="string">pMatches.wait()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 4.1 执行全局三维重建</span></span><br><span class="line"><span class="string">reconstruction_dir = os.path.join(output_dir,&quot;reconstruction_global&quot;)</span></span><br><span class="line"><span class="string">print (&quot;----------4.1. Do Global reconstruction----------&quot;)</span></span><br><span class="line"><span class="string">pRecons = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, &quot;openMVG_main_GlobalSfM&quot;),  &quot;-i&quot;, matches_dir+&quot;/sfm_data.json&quot;, &quot;-m&quot;, matches_dir, &quot;-o&quot;, reconstruction_dir] )</span></span><br><span class="line"><span class="string">pRecons.wait()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 5.1 计算场景结构颜色</span></span><br><span class="line"><span class="string">print (&quot;----------5.1. Colorize Structure----------&quot;)</span></span><br><span class="line"><span class="string">pRecons = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, &quot;openMVG_main_ComputeSfM_DataColor&quot;),  &quot;-i&quot;, reconstruction_dir+&quot;/sfm_data.bin&quot;, &quot;-o&quot;, os.path.join(reconstruction_dir,&quot;colorized.ply&quot;)] )</span></span><br><span class="line"><span class="string">pRecons.wait()</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 6.1 测量稳健三角</span></span><br><span class="line"><span class="string">print (&quot;----------6.1. Structure from Known Poses (robust triangulation)----------&quot;)</span></span><br><span class="line"><span class="string">pRecons = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, &quot;openMVG_main_ComputeStructureFromKnownPoses&quot;),  &quot;-i&quot;, reconstruction_dir+&quot;/sfm_data.bin&quot;, &quot;-m&quot;, matches_dir, &quot;-o&quot;, os.path.join(reconstruction_dir,&quot;robust.ply&quot;)] )</span></span><br><span class="line"><span class="string">pRecons.wait()</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 7. 把openMVG生成的SfM_Data转为适用于PMVS输入格式的文件</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;----------7. Export to PMVS/CMVS----------&quot;</span>)</span><br><span class="line">pRecons = subprocess.Popen( [os.path.join(OPENMVG_SFM_BIN, <span class="string">&quot;openMVG_main_openMVG2PMVS&quot;</span>),  <span class="string">&quot;-i&quot;</span>, reconstruction_dir+<span class="string">&quot;/sfm_data.bin&quot;</span>, <span class="string">&quot;-o&quot;</span>, reconstruction_dir] )</span><br><span class="line">pRecons.wait()</span><br><span class="line"><span class="comment">#*注：执行后会在-o路径下生成一个PMVS目录，包含 models, txt, visualize 三个子目录：models为空；txt包含对应图像的txt文档，每个里面都是一个3x4的矩阵，大概是相机位姿；visualize包含11张图像，不确定是原图像还是校正过的图像</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 8. 使用PMVS重建稠密点云、表面、纹理</span></span><br><span class="line"><span class="built_in">print</span> (<span class="string">&quot;----------8. pmvs2----------&quot;</span>)</span><br><span class="line">pRecons = subprocess.Popen( [os.path.join(PMVS_BIN, <span class="string">&quot;pmvs2&quot;</span>),  reconstruction_dir+<span class="string">&quot;/PMVS/&quot;</span>, <span class="string">&quot;pmvs_options.txt&quot;</span>] )  <span class="comment"># 注：不要修改pmvs_options.txt文件名</span></span><br><span class="line">pRecons.wait()</span><br><span class="line"><span class="comment">#*注：执行后会在./PMVS/models文件夹中生成一个pmvs_options.txt.ply点云文件，用meshlab打开即可看到重建出来的彩色稠密点云。</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/hyCA6s"><img src="https://z3.ax1x.com/2021/09/03/hyCA6s.gif" alt="hyCA6s.gif"></a></p>
+
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = 'OpenMVG+PMVS三维重建入门使用'
+    }
+</script>
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            AliceMerser
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    <aside id="sidebar-hot_posts">
+    <div class="panel panel-gal hot hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-fire"></i>
+            最热文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/12/09/typora%E4%B8%8B%E7%BC%96%E5%86%99Markdown%E6%96%87%E4%BB%B6/">Typora使用笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/12/09/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/10/04/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/">图像分割</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/26/%E5%9F%9F%E5%90%8D%E5%A4%87%E6%A1%88/">域名备案</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/14/%E6%B7%B1%E5%BA%A6%E7%9B%B8%E6%9C%BA/">深度相机</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/03/OpenMVG-PMVS%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/">OpenMVG+PMVS三维重建入门使用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/ResNet/">ResNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/GoogLeNet/">GoogLeNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C%E4%B8%8E%E5%BC%95%E6%93%8E/">游戏制作与引擎</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/24/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%AE%80%E4%BB%8B/">三维重建简介</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/02/AlexNet/">AlexNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/GoogLeNet/">GoogLeNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/04/06/Spring/">Spring</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/02/VGGNet/">VGGNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/24/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%AE%80%E4%BB%8B/">三维重建简介</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/06/%E5%85%B3%E4%BA%8Ehexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">关于hexo博客的一些问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/10/04/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%AC%94%E8%AE%B0/">数据挖掘笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/10/04/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/">图像分割</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/10/31/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/">调研报告</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C%E4%B8%8E%E5%BC%95%E6%93%8E/">游戏制作与引擎</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2021/09/03/OpenMVG-PMVS%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2021/09/03/OpenMVG-PMVS%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2021/09/03/OpenMVG-PMVS%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" style="font-size: 17.80041598657288px;" class="tag-cloud-link">神经网络模型</a>
+    
+    <a href="/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/" style="font-size: 18.800881255035144px;" class="tag-cloud-link">三维重建</a>
+    
+    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 11.455026381477381px;" class="tag-cloud-link">神经网络</a>
+    
+    <a href="/tags/Spring/" style="font-size: 18.5726589764834px;" class="tag-cloud-link">Spring</a>
+    
+    <a href="/tags/Gitalk/" style="font-size: 9.041831124579506px;" class="tag-cloud-link">Gitalk</a>
+    
+    <a href="/tags/%E4%B8%89%E7%BB%B4%E7%82%B9%E4%BA%91/" style="font-size: 18.68656742001344px;" class="tag-cloud-link">三维点云</a>
+    
+    <a href="/tags/hexo/" style="font-size: 15.476458669091699px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/" style="font-size: 12.823327211905905px;" class="tag-cloud-link">图像分割</a>
+    
+    <a href="/tags/%E5%A4%87%E6%A1%88/" style="font-size: 13.622925123748232px;" class="tag-cloud-link">备案</a>
+    
+    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 9.049208682688546px;" class="tag-cloud-link">数据结构</a>
+    
+    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 9.43659185916253px;" class="tag-cloud-link">机器学习</a>
+    
+    <a href="/tags/%E6%B7%B1%E5%BA%A6%E7%9B%B8%E6%9C%BA/" style="font-size: 18.25124524420589px;" class="tag-cloud-link">深度相机</a>
+    
+    <a href="/tags/RGB-D/" style="font-size: 17.506239497163687px;" class="tag-cloud-link">RGB-D</a>
+    
+    <a href="/tags/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C/" style="font-size: 16.204034444727892px;" class="tag-cloud-link">游戏制作</a>
+    
+    <a href="/tags/%E5%BC%95%E6%93%8E/" style="font-size: 14.548337838500325px;" class="tag-cloud-link">引擎</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/zhangwei19980131" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://space.bilibili.com/284084563" target="_blank">bilibili</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 AliceMerser Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+<script>
+    window.hot_posts_count = '10'
+    // window.use_leancloud = 'true'
+</script>
+
+<script src="/js/comment/leancloud.js"></script>
+
+
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Fri Sep 03 2021 08:48:29 GMT+0800'
+      window.commentConfig.owner = ''
+      window.commentConfig.repo = ''
+      window.commentConfig.client_id = ''
+      window.commentConfig.client_secret = ''
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Fri Sep 03 2021 08:48:29 GMT+0800',
+        owner: '',
+        repo: '',
+        client_id: '',
+        client_secret: '',
+        redirect_uri: ''
+      }
+    }
+</script>
+
+<script src="/js/comment/gitment.js"></script>
+
+
+</html>

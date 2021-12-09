@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="AliceMerser">
+    
+    
+    
+    
+    
+    
+    <title>AlexNet | 夜忆香</title>
+    <link href="http://example.com" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <script src="//cdn1.lncld.net/static/js/3.4.2/av-min.js"></script>
+    <script>
+      AV.init({
+        appId: 'f5IN9CgqVuuyU4VvWx6JeIHr-gzGzoHsz',
+        appKey: 'YkqMByAI8NsEcN6CuIpgMQxh'
+      })
+    </script>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="夜忆香" type="application/atom+xml">
+</head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="http://example.com">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">夜忆香</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/JAVA/">JAVA</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/Markdown/">Markdown</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/">神经网络模型</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/">三维重建</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="http://example.com">夜忆香</a>
+        >
+        <span>AlexNet</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2021/08/02/AlexNet/">AlexNet</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/">神经网络模型</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2021-08-02
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-eye"></i>
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2021/08/02/AlexNet/">AlexNet</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2021-08-02
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/">神经网络模型</a>
+                
+                
+                
+                <i class="fa fa-eye"></i>
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h1 id="内容以PPT形式展示"><a href="#内容以PPT形式展示" class="headerlink" title="内容以PPT形式展示"></a>内容以PPT形式展示</h1><h2 id="第一张ppt"><a href="#第一张ppt" class="headerlink" title="第一张ppt"></a>第一张ppt</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHSy9"><img src="https://z3.ax1x.com/2021/08/07/fuHSy9.png" alt="fuHSy9.png"></a></p>
+<p>论文题目是基于深度卷积神经网络的图像网络分类</p>
+<p>首先说明ImageNet和ILSVRC-2012是不同的两个概念，ImageNet项目是一个用于视觉对象识别软件研究的大型可视化数据库。有14,197,122 张图片, 21841 多个类别。</p>
+<p>ILSVRC-2012是一个大型的挑战赛，从ImageNet中挑选1000类的1200000张作为训练集。</p>
+<h2 id="第二张ppt"><a href="#第二张ppt" class="headerlink" title="第二张ppt"></a>第二张ppt</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHio6"><img src="https://z3.ax1x.com/2021/08/07/fuHio6.png" alt="fuHio6.png"></a></p>
+<p>ILSVRC有一个分类任务，对于每张图像，算法将按置信度的降序生成最多 5 个对象类别的列表。将根据与图像的真实标签最匹配的标签来评估标签的质量。</p>
+<p>这5个类别就是我们计算TOP-5error的数据</p>
+<p>为什么：</p>
+<p>这个想法是允许算法识别图像中的多个对象，并且如果识别出的对象之一确实存在，但不包含在基本事实中，则不会受到惩罚。</p>
+<p>如果这5个类别我们有一个分类正确了，就不会惩罚我们的模型，继续优化。</p>
+<h2 id="第三张ppt"><a href="#第三张ppt" class="headerlink" title="第三张ppt"></a>第三张ppt</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHCe1"><img src="https://z3.ax1x.com/2021/08/07/fuHCe1.png" alt="fuHCe1.png"></a></p>
+<p>1CNN︰训练一个AlexNet</p>
+<p>5CNNs:训练五个AlexNet取平均值</p>
+<p>1CNN*在最后一个池化层之后，额外添加第六个卷积层,并使用lmageNet 2011(秋）数据集上预训练</p>
+<p>7CNNs*两个预训练模型微调，与5CNNs取平均值</p>
+<h2 id="第四张ppt"><a href="#第四张ppt" class="headerlink" title="第四张ppt"></a>第四张ppt</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHpLR"><img src="https://z3.ax1x.com/2021/08/07/fuHpLR.png" alt="fuHpLR.png"></a></p>
+<p>包含5个卷积层（某些卷积层后面带有池化层）和3个全连接层，网络的输入为150,528，224×224×3</p>
+<p>网络剩余层中的神经元数量由253,440–186,624–64,896–64,896–43,264–4096–4096–1000.</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHPdx"><img src="https://z3.ax1x.com/2021/08/07/fuHPdx.png" alt="fuHPdx.png"></a></p>
+<p>从图片当中，从原始的RGB，224 × 224，经过一个卷积，得到了一个55×55的特征图，经历一个Relu，经历池化，然后就变成了后面这个27，并且加有一个LRN这个操作</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHkFK"><img src="https://z3.ax1x.com/2021/08/07/fuHkFK.png" alt="fuHkFK.png"></a></p>
+<p>公式含义：输入特征图的大小 – kernel size(卷积核的大小) + 2p p是padding 也就是像素，有多少个pixel。除以stride 也就是步长</p>
+<p>这里227与上面图的224是有所不同的，其实在早期的Alexnet网络结构图当中，它就是227，为什么227这里经过卷积是55，论文当中224卷积也是55呢。我们算一下，（227-11）/4=55 。而224 计算的话 224-11 213 除以4 是53余1 向下取整再加1是54，在pytorch中，实现卷积是向下取整的。加两个像素，224 -11 +2×2 / 4 在加1</p>
+<p>​    然后我们得到了55×55，那有多少通道呢，就是有多少个卷积核就有多少个通道，也可以用公式这样算，K这里是池化窗的大小，算完经过第一个池化，特征图变为了27×27，通道数不变，再往下也是重复的卷积池化卷积池化，在全连接层前面画一条线，通常我们也会在这里切一刀，认为前面的这一系列操作就是对原始图像的特征提取，最后的这个就是特征，进入全连接层认为这是分类。</p>
+<h2 id="第五张ppt"><a href="#第五张ppt" class="headerlink" title="第五张ppt"></a>第五张ppt</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHEWD"><img src="https://z3.ax1x.com/2021/08/07/fuHEWD.png" alt="fuHEWD.png"></a></p>
+<p>第一列：名称 第二列 卷积核的数量 第三列padding 第四列：卷积核大小</p>
+<p>第五列：步长 第六列：img size我们之前算的特征图的高和宽</p>
+<p>​    公式解释：Fi 我们输入图片的通道数 Ks kernel size 卷积核的大小 Kn 卷积核的数量</p>
+<p>也就是输出的通道数+ 偏置</p>
+<p>​    我们可以发现总共有6000多万个参数，第一个FC层（全连接层）3700多万，大于百分之50，这也就是我们后面的神经网络不太爱使用这个FC层，因为实在是太占我们的内存了，占我们的参数。</p>
+<h2 id="第六张ppt"><a href="#第六张ppt" class="headerlink" title="第六张ppt"></a>第六张ppt</h2><p>[<img src="https://z3.ax1x.com/2021/08/07/fuHAJO.png" alt="fuHAJO.png"></p>
+<p>这个图意思是他们做了一个实验去比较使用relu和使用tanh当达到0.25这个error的时候的一个速度比较，relu可以加快神经网络的训练，从这个图上可以看出差不多6倍左右。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHZSe"><img src="https://z3.ax1x.com/2021/08/07/fuHZSe.png" alt="fuHZSe.png"></a></p>
+<p>受到真实的神经元侧抑制的启发。</p>
+<p>这个抑制信号我们需要注意一下，这个公式想实现的功能就是抑制。</p>
+<p>等号左边就是经过LRN之后每个神经元的激活值，分子是原始神经元的一个激活值。所以呢我们可以看到原始神经元a，经过LRN后呢是神经元b。i代表当前的通道channel，x，y代表像素的位置。我们想如果分母越大，那么b就会越小，这样就反映出对神经元一个抑制的效果，k是一个超参数，常数，α和β都是常数，由原型中的alpha和belta指定、论文也有介绍，我们不关心这个，我们来看这个Σ，这个Σ值越大，抑制效果就越强。</p>
+<p>a代表的是feature map里面的i对应像素的具体值，j是平方累加索引，我们来关注j的取值，j=max(0,i-n/2)，它是从0开始的，为了防止它超出别界，0，N-1是为了防止计算超过这个特征图，我们来看这个i-二分之n和i+二分之n，在图上i-二分之n代表往左考虑二分之n个通道，i+二分之n代表往右考虑二分之n个通道，也就是表示它有一个范围，这个范围就表示对应的我们真实神经元这个周围，这个周围是通过n来体现的。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHH6H"><img src="https://z3.ax1x.com/2021/08/07/fuHH6H.md.png" alt="fuHH6H.md.png"></a></p>
+<p>第四个神经元的值非常大，我们假如说是100，第5个是5，那么我们第三个神经元计算的时候，我们看公式，这个分母就会被这个100所控制了，也就是被抑制了，由于这个神经元的值非常大，它就抑制了周围的神经元的输出。</p>
+<p>我们再来看这个公式，它要看分母，分母当中它要考虑周围的一些神经元，那这些神经元当中如果有很大的值，他就会抑制，这就是由侧抑制启发得来的一个公式。</p>
+<h2 id="第七张ppt"><a href="#第七张ppt" class="headerlink" title="第七张ppt"></a>第七张ppt</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHmyd"><img src="https://z3.ax1x.com/2021/08/07/fuHmyd.png" alt="fuHmyd.png"></a></p>
+<p>我们常常会遇到数据不足的情况。比如，你遇到的一个任务，目前只有小几百的数据，然而，你知道目前现在流行的最先进的神经网络都是成千上万的图片数据。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHeQH"><img src="https://z3.ax1x.com/2021/08/07/fuHeQH.png" alt="fuHeQH.png"></a></p>
+<p>Hinton说他的灵感之一来自于银行的防欺诈机制。用他自己的话来说：“我去银行办理业务。柜员不停地换人，于是我问其中一人这是为什么。他说他不知道，但他们经常换来换去。我猜想，银行工作人员要想成功欺诈银行，他们之间要互相合作才行。这让我意识到，在每个样本中随机删除不同的部分神经元，可以阻止它们的阴谋，因此可以降低过拟合。” 其核心思想是在层的输出值中引入噪声，打破不显著的偶然模式（Hinton 称之为阴谋）。如果没有噪声的话，网络将会记住这些偶然模式。</p>
+<h2 id="第八张ppt"><a href="#第八张ppt" class="headerlink" title="第八张ppt"></a>第八张ppt</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHKeI"><img src="https://z3.ax1x.com/2021/08/07/fuHKeI.png" alt="fuHKeI.png"></a></p>
+<p>上面是48个下面是48个，上面是GPU1，下面是GPU2,上面是不同的方向，不同的频率，下面呈现的是不同的色彩，更多的是颜色块，而且上下基本上是不重叠的，不同的GPU有不同的选择，这有助于我们理解卷积核学习了什么内容，我们一提到神经网络，通常会想到这是一个黑盒子，Alexnet一共有5个卷积层，为什么第一个这个卷积层能够可视化呢？</p>
+<p>两个原因：第一个是kernels size的原因 11×11 比较大，它可视化出来还能看出一些内容，121个像素，后面的卷积核5*×5 3×3 3×3只有9个像素，我们几乎看不出什么模式的，这也就是为什么没有可视化后面的卷积核，可视化出来也分析不出什么东西</p>
+<p>第二个原因是关于特征，因为我们知道卷积神经网络越往后，特征越高级，越抽象的，我们人类的眼睛很难去识别它，那么我们第一个卷积层是最底层的最低级的特征，最接近人类观察到原始图片上的一些信息的，也就是这些颜色色彩纹理边缘，符合特征由低级到高级这么一个过程。</p>
+<h2 id="第九张ppt"><a href="#第九张ppt" class="headerlink" title="第九张ppt"></a>第九张ppt</h2><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fuHnOA"><img src="https://z3.ax1x.com/2021/08/07/fuHnOA.png" alt="fuHnOA.png"></a></p>
+
+    </div>
+</article>
+
+
+<div id="comments-template"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script>
+	if(!window.commentConfig) {
+      window.commentConfig = {}
+      window.commentConfig.title = 'AlexNet'
+    }
+</script>
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            AliceMerser
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"></p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    <aside id="sidebar-hot_posts">
+    <div class="panel panel-gal hot hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-fire"></i>
+            最热文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/12/09/typora%E4%B8%8B%E7%BC%96%E5%86%99Markdown%E6%96%87%E4%BB%B6/">Typora使用笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/12/09/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/10/04/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/">图像分割</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/26/%E5%9F%9F%E5%90%8D%E5%A4%87%E6%A1%88/">域名备案</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/14/%E6%B7%B1%E5%BA%A6%E7%9B%B8%E6%9C%BA/">深度相机</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/03/OpenMVG-PMVS%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/">OpenMVG+PMVS三维重建入门使用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/ResNet/">ResNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/GoogLeNet/">GoogLeNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C%E4%B8%8E%E5%BC%95%E6%93%8E/">游戏制作与引擎</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/24/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%AE%80%E4%BB%8B/">三维重建简介</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/02/AlexNet/">AlexNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/03/OpenMVG-PMVS%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E5%85%A5%E9%97%A8%E4%BD%BF%E7%94%A8/">OpenMVG+PMVS三维重建入门使用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/ResNet/">ResNet</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/03/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95-Typora/">markdown基本语法-Typora</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/12/09/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/24/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA%E7%AE%80%E4%BB%8B/">三维重建简介</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/10/18/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%AF%BC%E8%AE%BA%E7%AC%94%E8%AE%B0/">人工智能导论笔记</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/09/26/%E5%9F%9F%E5%90%8D%E5%A4%87%E6%A1%88/">域名备案</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/10/31/%E8%B0%83%E7%A0%94%E6%8A%A5%E5%91%8A/">调研报告</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2021/08/27/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C%E4%B8%8E%E5%BC%95%E6%93%8E/">游戏制作与引擎</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2021/08/02/AlexNet/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2021/08/02/AlexNet/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2021/08/02/AlexNet/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B/" style="font-size: 18.189068832223324px;" class="tag-cloud-link">神经网络模型</a>
+    
+    <a href="/tags/%E4%B8%89%E7%BB%B4%E9%87%8D%E5%BB%BA/" style="font-size: 18.00629601009563px;" class="tag-cloud-link">三维重建</a>
+    
+    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/" style="font-size: 19.48836465877582px;" class="tag-cloud-link">神经网络</a>
+    
+    <a href="/tags/Spring/" style="font-size: 15.564684158260421px;" class="tag-cloud-link">Spring</a>
+    
+    <a href="/tags/Gitalk/" style="font-size: 10.606103955340444px;" class="tag-cloud-link">Gitalk</a>
+    
+    <a href="/tags/%E4%B8%89%E7%BB%B4%E7%82%B9%E4%BA%91/" style="font-size: 14.923130188593891px;" class="tag-cloud-link">三维点云</a>
+    
+    <a href="/tags/hexo/" style="font-size: 8.416089546608209px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/%E5%9B%BE%E5%83%8F%E5%88%86%E5%89%B2/" style="font-size: 19.68907172632183px;" class="tag-cloud-link">图像分割</a>
+    
+    <a href="/tags/%E5%A4%87%E6%A1%88/" style="font-size: 12.395480642870506px;" class="tag-cloud-link">备案</a>
+    
+    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 14.363576132885171px;" class="tag-cloud-link">数据结构</a>
+    
+    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 12.93381362002242px;" class="tag-cloud-link">机器学习</a>
+    
+    <a href="/tags/%E6%B7%B1%E5%BA%A6%E7%9B%B8%E6%9C%BA/" style="font-size: 17.387867667391063px;" class="tag-cloud-link">深度相机</a>
+    
+    <a href="/tags/RGB-D/" style="font-size: 19.16901632730034px;" class="tag-cloud-link">RGB-D</a>
+    
+    <a href="/tags/%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C/" style="font-size: 19.222880058399237px;" class="tag-cloud-link">游戏制作</a>
+    
+    <a href="/tags/%E5%BC%95%E6%93%8E/" style="font-size: 11.177998916528548px;" class="tag-cloud-link">引擎</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/zhangwei19980131" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://space.bilibili.com/284084563" target="_blank">bilibili</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 AliceMerser Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+<script>
+    window.hot_posts_count = '10'
+    // window.use_leancloud = 'true'
+</script>
+
+<script src="/js/comment/leancloud.js"></script>
+
+
+
+<script src="https://myau.moe/js/comment/gitment.browser.js"></script>
+<script>
+    if(window.commentConfig) {
+      window.commentConfig.id = 'Mon Aug 02 2021 15:29:55 GMT+0800'
+      window.commentConfig.owner = ''
+      window.commentConfig.repo = ''
+      window.commentConfig.client_id = ''
+      window.commentConfig.client_secret = ''
+      window.commentConfig.redirect_uri = ''
+    } else {
+      window.commentConfig = {
+      	id: 'Mon Aug 02 2021 15:29:55 GMT+0800',
+        owner: '',
+        repo: '',
+        client_id: '',
+        client_secret: '',
+        redirect_uri: ''
+      }
+    }
+</script>
+
+<script src="/js/comment/gitment.js"></script>
+
+
+</html>
